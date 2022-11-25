@@ -1,0 +1,103 @@
+:root {
+  --color1: #134074;
+  --color2: #13315c;
+  --color3: #0b2545;
+  --color4: #8da9c4;
+  --color5: #eef4ed;
+  --navbar-weight: 45px;
+}
+
+body {
+  font-family: "Archivo Narrow";
+  font-size: 22px;
+  background-color: var(--color5);
+  margin: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+.navbar {
+  width: 100%;
+  height: var(--navbar-weight);
+  position: fixed;
+  line-height: var(--navbar-weight);
+  text-align: justify;
+  background-color: var(--color4);
+  padding: 10px;
+}
+
+.navbar a:hover {
+    color: var(--color1);
+}
+
+a, h2 {
+  text-decoration: none;
+  color: var(--color3);
+}
+
+.section-head {
+    margin: 0;
+}
+
+.body {
+    padding: var(--navbar-weight) 10px 20px;
+    display: grid;
+}
+
+form {
+    width: 480px;
+}
+
+.section-data {
+    border: solid 2px var(--color4) ;
+    border-radius: 10px;
+    padding: 5%;
+    margin-bottom: 10px;
+}
+
+div.container {
+    flex-direction: column;
+    max-width: 1000px;
+    width: 100%;
+    margin:auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+  }
+
+.input-block {
+    height: 40px;
+    display: inline-block;
+    width: 100%;
+    margin-top: 10px;
+}
+  
+.input-label {
+    width: 50%;
+    padding-right: 10px;
+}
+
+.select-option {
+    width: 100%;
+    margin: 5px 0;
+    height: 25px;
+}
+
+.input-option {
+    display: flex;
+    width: 414px;
+    height: 21px;
+    padding: 0 5px;
+    margin: 5px 0;
+}
