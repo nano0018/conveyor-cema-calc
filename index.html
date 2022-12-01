@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -144,11 +144,31 @@
               </select>
             </div>
             <div class="input-block">
+              <label class="input-label" for="flight-thickness"
+                >Espesor de las hélices del transportador:
+              </label>
+              <select
+                class="select-option"
+                name="flight-thickness"
+                id="flight-thickness"
+              >
+                <option value="1/4">1/4"</option>
+              </select>
+            </div>
+            <div class="input-block">
+              <label class="input-label" for="flight-type"
+                >Tipo de hélices del transportador:
+              </label>
+              <select class="select-option" name="flight-type" id="flight-type">
+                <option value="standard">Estándar</option>
+              </select>
+            </div>
+            <div class="input-block">
               <label class="input-label" for="screw-bolt"
                 >Tamaño tornillos del espigo:
               </label>
               <select class="select-option" name="screw-bolt" id="screw-bolt">
-                <option value="5_8-11">5/8" - UNC</option>
+                <option value="5_8_UNC">5/8" - UNC</option>
               </select>
             </div>
             <div class="input-block">
@@ -200,10 +220,158 @@
               />
             </div>
           </div>
+          <div class="section-data">
+            <h4 class="section-head">Datos trasmisión</h4>
+            <div class="input-block">
+              <label class="input-label" for="transmissionRelation"
+                >Relación de transmisión:
+              </label>
+              <input
+                class="input-option"
+                type="number"
+                name="transmissionRelation"
+                id="transmissionRelation"
+              />
+            </div>
+          </div>
           <div>
             <a href="#">Calcular</a>
           </div>
         </form>
+      </div>
+      <div class="container">
+        <h2>Resultados del cálculo - Resumen</h2>
+        <div class="input-data">
+          <div class="section-data">
+            <h4 class="section-head">Datos potencia</h4>
+            <div class="input-block">
+              <label class="input-label" for="realPower"
+                >Potencia calculada:
+              </label>
+              <input
+                class="input-option"
+                type="text"
+                name="realPower"
+                id="realPower"
+                disabled
+              />
+            </div>
+            <div class="input-block">
+              <label class="input-label" for="closestPower"
+                >Potencia motor aproximada:
+              </label>
+              <input
+                class="input-option"
+                type="text"
+                name="closestPower"
+                id="closestPower"
+                disabled
+              />
+            </div>
+            <div class="input-block">
+              <label class="input-label" for="upperSizePower"
+                >Potencia motor aproximada por encima:
+              </label>
+              <input
+                class="input-option"
+                type="text"
+                name="upperSizePower"
+                id="upperSizePower"
+                disabled
+              />
+            </div>
+          </div>
+          <div class="section-data">
+            <h4 class="section-head">Datos trasmisión</h4>
+            <div class="input-block">
+              <label class="input-label" for="transmissionRelationC"
+                >Relación de transmisión:
+              </label>
+              <input
+                class="input-option"
+                type="number"
+                name="transmissionRelationC"
+                id="transmissionRelationC"
+                disabled
+              />
+            </div>
+            <div class="input-block">
+              <label class="input-label" for="conveyorSpeed"
+                >Velocidad del transportador:
+              </label>
+              <input
+                class="input-option"
+                type="text"
+                name="conveyorSpeed"
+                id="conveyorSpeed"
+                disabled
+              />
+            </div>
+            <div class="input-block">
+              <label class="input-label" for="reducerSpeed"
+                >Relación de transmisión del reductor:
+              </label>
+              <input
+                class="input-option"
+                type="number"
+                name="reducerSpeed"
+                id="reducerSpeed"
+                disabled
+              />
+            </div>
+          </div>
+          <div class="section-data">
+            <h4 class="section-head">Datos del transportador</h4>
+            <div class="input-block">
+              <label class="input-label" for="screwBoltSF"
+                >Factor de seguridad de los tornillos del espigo:
+              </label>
+              <input
+                class="input-option"
+                type="number"
+                name="screwBoltSF"
+                id="screwBoltSF"
+                disabled
+              />
+            </div>
+            <div class="input-block">
+              <label class="input-label" for="screwDeflection"
+                >Deflexión del transportador:
+              </label>
+              <input
+                class="input-option"
+                type="text"
+                name="screwDeflection"
+                id="screwDeflection"
+                disabled
+              />
+            </div>
+            <div class="input-block">
+              <label class="input-label" for="reducerStress"
+                >Esfuerzo reducido en el transportador:
+              </label>
+              <input
+                class="input-option"
+                type="number"
+                name="reducerStress"
+                id="reducerStress"
+                disabled
+              />
+            </div>
+            <div class="input-block">
+              <label class="input-label" for="screwPipeSF"
+                >Factor de seguridad del tubo del transportador:
+              </label>
+              <input
+                class="input-option"
+                type="number"
+                name="screwPipeSF"
+                id="screwPipeSF"
+                disabled
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </body>
