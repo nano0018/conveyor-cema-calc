@@ -34,6 +34,7 @@ input[type="number"] {
   text-align: justify;
   background-color: var(--color4);
   padding: 10px;
+  z-index: 1;
 }
 
 .navbar a:hover {

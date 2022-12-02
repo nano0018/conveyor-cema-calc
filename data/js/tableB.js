@@ -1,4 +1,6 @@
-﻿{
+export default
+
+{
     "TableB": [
         {
             "MATERIAL": "Adipic Acid",
