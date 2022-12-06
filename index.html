@@ -50,7 +50,7 @@
             </div>
             <div class="input-block">
               <label class="input-label" for="materialDensity"
-                >Densidad del material:
+                >Densidad del material [lb/ft<sup>3</sup>]:
               </label>
               <input
                 class="input-option"
@@ -65,7 +65,7 @@
             <h4 class="section-head">Datos transportador</h4>
             <div class="input-block">
               <label class="input-label" for="massFlow"
-                >Flujo másico requerido:
+                >Flujo másico requerido [kg/h]:
               </label>
               <input
                 class="input-option"
@@ -73,11 +73,12 @@
                 name="massFlow"
                 id="massFlow"
                 placeholder="Ingrese el flujo másico requerido en kg/h"
+                required
               />
             </div>
             <div class="input-block">
               <label class="input-label" for="lengthConveyor"
-                >Longitud del transportador:
+                >Longitud del transportador [mm]:
               </label>
               <input
                 class="input-option"
@@ -85,6 +86,7 @@
                 name="lengthConveyor"
                 id="lengthConveyor"
                 placeholder="Ingrese longitud del transportador en mm"
+                required
               />
             </div>
             <div class="input-block">
@@ -92,15 +94,13 @@
                 >Diámetro del transportador:
               </label>
               <select class="select-option" name="screwDiam" id="screwDiam">
-                <option value="9">9"</option>
               </select>
             </div>
             <div class="input-block">
               <label class="input-label" for="screwIncl"
-                >Inclinación del transportador:
+                >Inclinación del transportador [°]:
               </label>
               <select class="select-option" name="screwIncl" id="screwIncl">
-                <option value="9">0°</option>
               </select>
             </div>
             <div class="input-block">
@@ -112,15 +112,18 @@
                 name="screwBearing"
                 id="screwBearing"
               >
-                <option value="ball">Rodamiento de bolas</option>
               </select>
             </div>
             <div class="input-block">
-              <label class="input-label" for="screw-fill"
+              <label class="input-label" for="screwLoad"
                 >Porcentaje de llenado del transportador:
               </label>
-              <select class="select-option" name="screw-fill" id="screw-fill">
-                <option value="0.45">45%</option>
+              <select class="select-option" name="screwLoad" id="screwLoad">
+                <option value="Load15">15%</option>
+                <option value="Load30A">30%A</option>
+                <option value="Load30B">30%B</option>
+                <option value="Load45">45%</option>
+                <option value="Load90">95%</option>
               </select>
             </div>
             <div class="input-block">
@@ -141,7 +144,6 @@
                 >Tamaño eje del transportador:
               </label>
               <select class="select-option" name="screwPipeSize" id="screwPipeSize">
-                <option value="2sch80">2" SCH 80</option>
               </select>
             </div>
             <div class="input-block">
@@ -157,11 +159,21 @@
               </select>
             </div>
             <div class="input-block">
+              <label class="input-label" for="flightPitch"
+                >Paso de las hélices del transportador:
+              </label>
+              <select
+                class="select-option"
+                name="flightPitch"
+                id="flightPitch"
+              >
+              </select>
+            </div>
+            <div class="input-block">
               <label class="input-label" for="flightType"
                 >Tipo de hélices del transportador:
               </label>
               <select class="select-option" name="flightType" id="flightType">
-                <option value="standard">Estándar</option>
               </select>
             </div>
             <div class="input-block">
@@ -181,7 +193,6 @@
                 >Tamaño tornillos del espigo:
               </label>
               <select class="select-option" name="screwBolt" id="screwBolt">
-                <option value="5_8_UNC">5/8" - UNC</option>
               </select>
             </div>
             <div class="input-block">
@@ -194,6 +205,9 @@
                 id="screwBoltGrade"
               >
                 <option value="5">5</option>
+                <option value="2">2</option>
+                <option value="8">8</option>
+                <option value="Lamalloy">Lamalloy</option>
               </select>
             </div>
             <div class="input-block">
@@ -205,30 +219,18 @@
                 type="number"
                 name="safetyFactor"
                 id="safetyFactor"
-                placeholder="Ingrese el factor de seguridad. Se recomienda mínimo 1.5"
+                placeholder="Ingrese el factor de seguridad. Por defecto 1.5"
               />
             </div>
             <div class="input-block">
               <label class="input-label" for="flowCapacity"
-                >Flujo volumétrico requerido:
+                >Flujo volumétrico requerido [ft<sup>3</sup>/h]:
               </label>
               <input
                 class="input-option"
                 type="text"
                 name="flowCapacity"
                 id="flowCapacity"
-                disabled
-              />
-            </div>
-            <div class="input-block">
-              <label class="input-label" for="rpmConveyor"
-                >Velocidad RPM requerida:
-              </label>
-              <input
-                class="input-option"
-                type="text"
-                name="rpmConveyor"
-                id="rpmConveyor"
                 disabled
               />
             </div>
@@ -248,7 +250,7 @@
             </div>
           </div>
           <div>
-            <a href="#">Calcular</a>
+            <a href="#" id="calculate">Calcular</a>
           </div>
         </form>
       </div>

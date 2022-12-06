@@ -1,0 +1,166 @@
+export default
+
+{
+    "TableE": [
+      {
+        "SCREW DIA": "6",
+        "PIPE OD": "2 3/8",
+        "RADIAL  CLEARANCE ": "2 1/3",
+        "CLASS 1 ": "1.25",
+        "CLASS 2": "0.75",
+        "CLASS 3": "0.50"
+      },
+      {
+        "SCREW DIA": "9",
+        "PIPE OD": "2 3/8",
+        "RADIAL  CLEARANCE ": "3.81",
+        "CLASS 1 ": "2.25",
+        "CLASS 2": "1.50",
+        "CLASS 3": "0.75"
+      },
+      {
+        "SCREW DIA": "9",
+        "PIPE OD": "2 7/8",
+        "RADIAL  CLEARANCE ": "3.56",
+        "CLASS 1 ": "2.25",
+        "CLASS 2": "1.50",
+        "CLASS 3": "0.75"
+      },
+      {
+        "SCREW DIA": "12",
+        "PIPE OD": "2 7/8",
+        "RADIAL  CLEARANCE ": "5.06",
+        "CLASS 1 ": "2.75",
+        "CLASS 2": "2.00",
+        "CLASS 3": "1.00"
+      },
+      {
+        "SCREW DIA": "12",
+        "PIPE OD": "3 1/2",
+        "RADIAL  CLEARANCE ": "4.75",
+        "CLASS 1 ": "2.75",
+        "CLASS 2": "2.00",
+        "CLASS 3": "1.00"
+      },
+      {
+        "SCREW DIA": "12",
+        "PIPE OD": "4",
+        "RADIAL  CLEARANCE ": "4.50",
+        "CLASS 1 ": "2.75",
+        "CLASS 2": "2.00",
+        "CLASS 3": "1.00"
+      },
+      {
+        "SCREW DIA": "14",
+        "PIPE OD": "3 1/2",
+        "RADIAL  CLEARANCE ": "5.75",
+        "CLASS 1 ": "3.25",
+        "CLASS 2": "2.50",
+        "CLASS 3": "1.25"
+      },
+      {
+        "SCREW DIA": "14",
+        "PIPE OD": "4",
+        "RADIAL  CLEARANCE ": "5.50",
+        "CLASS 1 ": "3.25",
+        "CLASS 2": "2.50",
+        "CLASS 3": "1.25"
+      },
+      {
+        "SCREW DIA": "14",
+        "PIPE OD": "4 1/2",
+        "RADIAL  CLEARANCE ": "5.25",
+        "CLASS 1 ": "3.00",
+        "CLASS 2": "2.00",
+        "CLASS 3": "1.00"
+      },
+      {
+        "SCREW DIA": "16",
+        "PIPE OD": "4",
+        "RADIAL  CLEARANCE ": "6.50",
+        "CLASS 1 ": "3.75",
+        "CLASS 2": "2.75",
+        "CLASS 3": "1.50"
+      },
+      {
+        "SCREW DIA": "16",
+        "PIPE OD": "4 1/2",
+        "RADIAL  CLEARANCE ": "6.25",
+        "CLASS 1 ": "3.75",
+        "CLASS 2": "2.75",
+        "CLASS 3": "1.50"
+      },
+      {
+        "SCREW DIA": "16",
+        "PIPE OD": "5  9/16",
+        "RADIAL  CLEARANCE ": "5.72",
+        "CLASS 1 ": "3.25",
+        "CLASS 2": "2.25",
+        "CLASS 3": "1.25"
+      },
+      {
+        "SCREW DIA": "18",
+        "PIPE OD": "4",
+        "RADIAL  CLEARANCE ": "7.50",
+        "CLASS 1 ": "4.25",
+        "CLASS 2": "3.00",
+        "CLASS 3": "1.75"
+      },
+      {
+        "SCREW DIA": "18",
+        "PIPE OD": "4 1/2",
+        "RADIAL  CLEARANCE ": "7.25",
+        "CLASS 1 ": "4.25",
+        "CLASS 2": "3.00",
+        "CLASS 3": "1.75"
+      },
+      {
+        "SCREW DIA": "18",
+        "PIPE OD": "5  9/16",
+        "RADIAL  CLEARANCE ": "6.72",
+        "CLASS 1 ": "3.75",
+        "CLASS 2": "2.50",
+        "CLASS 3": "1.50"
+      },
+      {
+        "SCREW DIA": "20",
+        "PIPE OD": "4",
+        "RADIAL  CLEARANCE ": "8.50",
+        "CLASS 1 ": "4.75",
+        "CLASS 2": "3.50",
+        "CLASS 3": "2.00"
+      },
+      {
+        "SCREW DIA": "20",
+        "PIPE OD": "4 1/2",
+        "RADIAL  CLEARANCE ": "8.25",
+        "CLASS 1 ": "4.75",
+        "CLASS 2": "3.50",
+        "CLASS 3": "2.00"
+      },
+      {
+        "SCREW DIA": "20",
+        "PIPE OD": "5  9/16",
+        "RADIAL  CLEARANCE ": "7.72",
+        "CLASS 1 ": "4.25",
+        "CLASS 2": "3.00",
+        "CLASS 3": "1.50"
+      },
+      {
+        "SCREW DIA": "24",
+        "PIPE OD": "4 1/2",
+        "RADIAL  CLEARANCE ": "10.25",
+        "CLASS 1 ": "6.00",
+        "CLASS 2": "3.75",
+        "CLASS 3": "2.50"
+      },
+      {
+        "SCREW DIA": "24",
+        "PIPE OD": "5  9/16",
+        "RADIAL  CLEARANCE ": "9.72",
+        "CLASS 1 ": "5.50",
+        "CLASS 2": "3.75",
+        "CLASS 3": "2.00"
+      }
+    ]
+  }
