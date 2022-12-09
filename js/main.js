@@ -6,10 +6,7 @@ import dataFromTableQ from '../data/js/tableQ.js';
 import dataFromTableM from '../data/js/tableM.js';
 import dataFromTableV from '../data/js/tableV.js';
 import dataFromThreadTable from '../data/js/threadTable.js';
-
-
-//Constants for unit conversion or screw calculations
-const lbToKg =  0.453592;
+import ScrewConveyor from './conveyorClass.js';
 
 //From table H, calculations for F0
 const fZero = () => {
@@ -108,26 +105,94 @@ const emptyFields = () => {
     }
 }
 
-//Set calculations
-const conveyorCapacity = (flowCapacity, screwLoad, screwDiam) => {
-    switch (screwLoad) {
-        case 'Load15':
-            console.log(dataFromTableD.Load15)
-            break;
-        case 'Load30A':
-            console.log(dataFromTableD.Load30A)
-            break;
-        case 'Load30B':
-            console.log(dataFromTableD.Load30B)
-            break;
-        case 'Load45':
-            console.log(dataFromTableD.Load45)
-            break;
-        case 'Load90':
-            console.log(dataFromTableD.Load90)
-            break;
+//Gather constants data from tables
+const conveyorCapacity = (conveyor) => {
+
+    const conveyorCapacityTable = (screwLoad) => {
+        switch (screwLoad) {
+            case 'Load15':
+                return dataFromTableD.Load15;
+            case 'Load30A':
+                return dataFromTableD.Load30A;
+            case 'Load30B':
+                return dataFromTableD.Load30B;
+            case 'Load45':
+                return dataFromTableD.Load45;
+            case 'Load90':
+                return dataFromTableD.Load90;
+            default:
+                return dataFromTableD.Load15;
+        }
+    }
+
+    const data = conveyorCapacityTable(conveyor.screwLoad);
+    for (const dataElement of data) {
+        if (dataElement['SCREW DIAMETER'] === conveyor.screwDiameter) {            
+            return dataElement['CAPACITY (FT3/HR) PER RPM'];
+        }
+    }
+}
+
+const loadCf1 = (conveyor) => {
+    switch (conveyor.flightPitch) {
+        case 1:
+            return dataFromTableC.Cf1[0].CF1;
+        case 0.67:
+            return dataFromTableC.Cf1[1].CF1;
+        case 0.5:
+            return dataFromTableC.Cf1[2].CF1;
+        case 0.75:
+            return dataFromTableC.Cf1[3].CF1;
+        case 0.33:
+            return dataFromTableC.Cf1[4].CF1;
+        case 1.5:
+            return dataFromTableC.Cf1[5].CF1;
         default:
-            break;
+            return dataFromTableC.Cf1[0].CF1;
+    }
+}
+
+
+const loadCf2 = (conveyor) => {   
+    
+    const loadData = (conveyor) => {
+        switch (conveyor.screwLoad) {
+            case 'Load15':
+                return dataFromTableC.Cf2_15;
+            case 'Load30A':
+                return dataFromTableC.Cf2_30;
+            case 'Load30B':
+                return dataFromTableC.Cf2_30;
+            case 'Load45':
+                return dataFromTableC.Cf2_45;
+            case 'Load90':
+                return dataFromTableC.Cf2_45;
+            default:
+                return dataFromTableC.Cf2_15;
+        } 
+    }
+    const data = loadData(conveyor);      
+    
+    switch (conveyor.flightType) {
+        case "Standard":
+            return data[0].Cf2;
+        case "Cut":
+            return data[1].Cf2;
+        case "Cut & Folded":
+            return data[2].Cf2;
+        case "Ribbon":
+            return data[3].Cf2;      
+        default:
+            return data[0].Cf2;
+    }
+}
+
+const loadCf3 = (conveyor) => {
+    const data = dataFromTableC.Cf3;
+    for (const dataElement of data) {
+        if (dataElement['PADDLES'] === conveyor.paddleQty) {
+            return dataElement.Cf3;
+        }
     }
 }
 
@@ -140,13 +205,40 @@ calculate.addEventListener('click', function(e){
     } 
     if (!emptyFields()) {
 
-        const materialDensity = document.getElementById('materialDensity').value;
-        const massFlow = document.getElementById('massFlow').value;
+        // Create object screwConveyor from conveyorClass
         const screwDiam = document.getElementById('screwDiam').value;
-        const screwLoad = document.getElementById('screwLoad').value;      
-        let flowCapacity =  massFlow / (materialDensity * lbToKg);
-        conveyorCapacity(55, screwLoad, screwDiam);
-        document.getElementById('flowCapacity').value = flowCapacity;
+        const lengthConveyor = document.getElementById('lengthConveyor').value;
+
+        let screwConveyor = new ScrewConveyor(screwDiam, lengthConveyor)
+
+        // Gather information from HTML
+
+        screwConveyor.materialDensity = document.getElementById('materialDensity').value;
+        screwConveyor.screwIncl = document.getElementById('screwIncl').value;
+        screwConveyor.screwBearing = document.getElementById('screwBearing').value;
+        screwConveyor.screwLoad = document.getElementById('screwLoad').value;
+        screwConveyor.screwSupport = document.getElementById('screwSupport').value;
+        screwConveyor.screwPipeSize = document.getElementById('screwPipeSize').value;
+        screwConveyor.flightThickness = document.getElementById('flightThickness').value;
+        screwConveyor.flightPitch = document.getElementById('flightPitch').value;
+        screwConveyor.flightType = document.getElementById('flightType').value;
+        screwConveyor.paddleQty = document.getElementById('paddleQty').value;
+        screwConveyor.screwBolt = document.getElementById('screwBolt').value;
+        screwConveyor.screwBoltGrade = document.getElementById('screwBoltGrade').value;
+        screwConveyor.safetyFactor = document.getElementById('safetyFactor').value;
+        screwConveyor.transmissionRelation = document.getElementById('transmissionRelation').value;
+        screwConveyor.massFlow = document.getElementById('massFlow').value;
+
+        const currentConveyorCapacity = conveyorCapacity(screwConveyor);
+        const cf2 = loadCf2(screwConveyor);
+        const cf1 = loadCf1(screwConveyor);
+        const cf3 = loadCf3(screwConveyor);
+        
+        screwConveyor.calcFlowCapacity();
+        screwConveyor.calculateConveyorSpeed(cf1, cf2, cf3,currentConveyorCapacity);
+        console.log(screwConveyor.conveyorSpeed)
+        console.log(screwConveyor.flightPitch, cf1, screwConveyor.flightType, cf2, screwConveyor.paddleQty ,cf3);
+        screwConveyor.getConveyorInput();
 
     } else {
         alert("Verifique los campos! Hay campos sin completar");
@@ -155,6 +247,7 @@ calculate.addEventListener('click', function(e){
 
 });
 
+// Load data to HTML
 dataTableB();
 dataTableN();
 dataTableM();
