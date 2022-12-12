@@ -422,7 +422,6 @@ testConvey.calculateRetentionTime();
 testConvey.calculateRequiredScrewPower(fd, fb, fm, ff, fp);
 const fZero = loadFZero(testConvey);
 testConvey.calculateTotalPower(fZero, cin);
-console.log(cf1, cf2, cf3, cin, fd, fb, fm, ff, fp);
 console.log(getPipeData(testConvey));
 console.log(testConvey.conveyorSpeed);
 calculateTorque(testConvey);
