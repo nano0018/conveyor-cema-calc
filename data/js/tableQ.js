@@ -3,8 +3,8 @@ export default
 {
     "TableQ": [
         {
-            "SHAFT DIA": "1-1/2\"",
-            "PIPE": "2\" sch 40",
+            "SHAFT DIA": "1.5",
+            "PIPE": "2 sch 40",
             "SHAFT SS/1018": "2,565",
             "SHAFT 4140": "3,552",
             "PIPE SS/CS": "7,288",
@@ -12,8 +12,8 @@ export default
             "3-BOLT": "24,962"
         },
         {
-            "SHAFT DIA": "1-1/2\"",
-            "PIPE": "2\" sch 80",
+            "SHAFT DIA": "1.5",
+            "PIPE": "2 sch 80",
             "SHAFT SS/1018": "2,565",
             "SHAFT 4140": "3,552",
             "PIPE SS/CS": "9,501",
@@ -21,8 +21,8 @@ export default
             "3-BOLT": "24,962"
         },
         {
-            "SHAFT DIA": "1-1/2\"",
-            "PIPE": "2-1/2\" sch 40",
+            "SHAFT DIA": "1.5",
+            "PIPE": "2-1/2 sch 40",
             "SHAFT SS/1018": "2,565",
             "SHAFT 4140": "3,552",
             "PIPE SS/CS": "13,832",
@@ -30,8 +30,8 @@ export default
             "3-BOLT": "33,105"
         },
         {
-            "SHAFT DIA": "1-1/2\"",
-            "PIPE": "2-1/2\" sch 80",
+            "SHAFT DIA": "1.5",
+            "PIPE": "2-1/2 sch 80",
             "SHAFT SS/1018": "2,565",
             "SHAFT 4140": "3,552",
             "PIPE SS/CS": "17,402",
@@ -39,8 +39,8 @@ export default
             "3-BOLT": "33,105"
         },
         {
-            "SHAFT DIA": "2\"",
-            "PIPE": "2-1/2\" sch 40",
+            "SHAFT DIA": "2",
+            "PIPE": "2-1/2 sch 40",
             "SHAFT SS/1018": "6,354",
             "SHAFT 4140": "8,798",
             "PIPE SS/CS": "13,832",
@@ -48,8 +48,8 @@ export default
             "3-BOLT": "39,254"
         },
         {
-            "SHAFT DIA": "2\"",
-            "PIPE": "2-1/2\" sch 80****",
+            "SHAFT DIA": "2",
+            "PIPE": "2-1/2 sch 80****",
             "SHAFT SS/1018": "6,354",
             "SHAFT 4140": "8,798",
             "PIPE SS/CS": "17,402",
@@ -57,8 +57,8 @@ export default
             "3-BOLT": "39,254"
         },
         {
-            "SHAFT DIA": "2\"",
-            "PIPE": "3\" sch 40",
+            "SHAFT DIA": "2",
+            "PIPE": "3 sch 40",
             "SHAFT SS/1018": "6,354",
             "SHAFT 4140": "8,798",
             "PIPE SS/CS": "22,413",
@@ -66,8 +66,8 @@ export default
             "3-BOLT": "53,955"
         },
         {
-            "SHAFT DIA": "2\"",
-            "PIPE": "3\" sch 80",
+            "SHAFT DIA": "2",
+            "PIPE": "3 sch 80",
             "SHAFT SS/1018": "6,354",
             "SHAFT 4140": "8,798",
             "PIPE SS/CS": "28,929",
@@ -75,8 +75,8 @@ export default
             "3-BOLT": "53,955"
         },
         {
-            "SHAFT DIA": "2\"",
-            "PIPE": "3\" 80/10 clad",
+            "SHAFT DIA": "2",
+            "PIPE": "3 80/10 clad",
             "SHAFT SS/1018": "6,354",
             "SHAFT 4140": "8,798",
             "PIPE SS/CS": "42,631",
@@ -84,8 +84,8 @@ export default
             "3-BOLT": "60,184"
         },
         {
-            "SHAFT DIA": "2-7/16\"",
-            "PIPE": "3\" sch 40",
+            "SHAFT DIA": "2.4375",
+            "PIPE": "3 sch 40",
             "SHAFT SS/1018": "12,558",
             "SHAFT 4140": "17,388",
             "PIPE SS/CS": "22,413",
@@ -93,8 +93,8 @@ export default
             "3-BOLT": "50,933"
         },
         {
-            "SHAFT DIA": "2-7/16\"",
-            "PIPE": "3\" sch 80",
+            "SHAFT DIA": "2.4375",
+            "PIPE": "3 sch 80",
             "SHAFT SS/1018": "12,558",
             "SHAFT 4140": "17,388",
             "PIPE SS/CS": "28,929",
@@ -102,8 +102,8 @@ export default
             "3-BOLT": "50,933"
         },
         {
-            "SHAFT DIA": "2-7/16\"",
-            "PIPE": "3\" 80/10 clad",
+            "SHAFT DIA": "2.4375",
+            "PIPE": "3 80/10 clad",
             "SHAFT SS/1018": "12,558",
             "SHAFT 4140": "17,388",
             "PIPE SS/CS": "42,631",
@@ -111,8 +111,8 @@ export default
             "3-BOLT": "57,161"
         },
         {
-            "SHAFT DIA": "2-7/16\"",
-            "PIPE": "3-1/2\" sch 40",
+            "SHAFT DIA": "2.4375",
+            "PIPE": "3-1/2 sch 40",
             "SHAFT SS/1018": "12,558",
             "SHAFT 4140": "17,388",
             "PIPE SS/CS": "31,120",
@@ -120,8 +120,8 @@ export default
             "3-BOLT": "64,274"
         },
         {
-            "SHAFT DIA": "2-7/16\"",
-            "PIPE": "3-1/2\" sch 80",
+            "SHAFT DIA": "2.4375",
+            "PIPE": "3-1/2 sch 80",
             "SHAFT SS/1018": "12,558",
             "SHAFT 4140": "17,388",
             "PIPE SS/CS": "40,821",
@@ -129,8 +129,8 @@ export default
             "3-BOLT": "64,274"
         },
         {
-            "SHAFT DIA": "2-7/16\"",
-            "PIPE": "3-1/2\" 80/10 clad",
+            "SHAFT DIA": "2.4375",
+            "PIPE": "3-1/2 80/10 clad",
             "SHAFT SS/1018": "12,558",
             "SHAFT 4140": "17,388",
             "PIPE SS/CS": "58,736",
@@ -138,8 +138,8 @@ export default
             "3-BOLT": "71,178"
         },
         {
-            "SHAFT DIA": "3\"",
-            "PIPE": "3-1/2\" sch 40",
+            "SHAFT DIA": "3",
+            "PIPE": "3-1/2 sch 40",
             "SHAFT SS/1018": "23,693",
             "SHAFT 4140": "32,806",
             "PIPE SS/CS": "31,120",
@@ -147,8 +147,8 @@ export default
             "3-BOLT": "70,556"
         },
         {
-            "SHAFT DIA": "3\"",
-            "PIPE": "3-1/2\" sch 80****",
+            "SHAFT DIA": "3",
+            "PIPE": "3-1/2 sch 80****",
             "SHAFT SS/1018": "23,693",
             "SHAFT 4140": "32,806",
             "PIPE SS/CS": "40,821",
@@ -156,8 +156,8 @@ export default
             "3-BOLT": "70,556"
         },
         {
-            "SHAFT DIA": "3\"",
-            "PIPE": "3-1/2\" 80/10 clad",
+            "SHAFT DIA": "3",
+            "PIPE": "3-1/2 80/10 clad",
             "SHAFT SS/1018": "23,693",
             "SHAFT 4140": "32,806",
             "PIPE SS/CS": "58,736",
@@ -165,8 +165,8 @@ export default
             "3-BOLT": "78,840"
         },
         {
-            "SHAFT DIA": "3\"",
-            "PIPE": "4\" sch 40",
+            "SHAFT DIA": "3",
+            "PIPE": "4 sch 40",
             "SHAFT SS/1018": "23,693",
             "SHAFT 4140": "32,806",
             "PIPE SS/CS": "41,788",
@@ -174,8 +174,8 @@ export default
             "3-BOLT": "88,252"
         },
         {
-            "SHAFT DIA": "3\"",
-            "PIPE": "4\" sch 80",
+            "SHAFT DIA": "3",
+            "PIPE": "4 sch 80",
             "SHAFT SS/1018": "23,693",
             "SHAFT 4140": "32,806",
             "PIPE SS/CS": "55,527",
@@ -183,8 +183,8 @@ export default
             "3-BOLT": "88,252"
         },
         {
-            "SHAFT DIA": "3\"",
-            "PIPE": "4\" 80/10 clad",
+            "SHAFT DIA": "3",
+            "PIPE": "4 80/10 clad",
             "SHAFT SS/1018": "23,693",
             "SHAFT 4140": "32,806",
             "PIPE SS/CS": "78,223",
@@ -192,8 +192,8 @@ export default
             "3-BOLT": "97,345"
         },
         {
-            "SHAFT DIA": "3-7/16\"",
-            "PIPE": "4\" sch 40",
+            "SHAFT DIA": "3.4375",
+            "PIPE": "4 sch 40",
             "SHAFT SS/1018": "35,490",
             "SHAFT 4140": "49,140",
             "PIPE SS/CS": "41,788",
@@ -201,8 +201,8 @@ export default
             "3-BOLT": "95,293"
         },
         {
-            "SHAFT DIA": "3-7/16\"",
-            "PIPE": "4\" sch 80****",
+            "SHAFT DIA": "3.4375",
+            "PIPE": "4 sch 80****",
             "SHAFT SS/1018": "35,490",
             "SHAFT 4140": "49,140",
             "PIPE SS/CS": "55,527",
@@ -210,8 +210,8 @@ export default
             "3-BOLT": "95,293"
         },
         {
-            "SHAFT DIA": "3-7/16\"",
-            "PIPE": "4\" 80/10 clad",
+            "SHAFT DIA": "3.4375",
+            "PIPE": "4 80/10 clad",
             "SHAFT SS/1018": "35,490",
             "SHAFT 4140": "49,140",
             "PIPE SS/CS": "78,223",
@@ -219,8 +219,8 @@ export default
             "3-BOLT": "105,902"
         },
         {
-            "SHAFT DIA": "3-7/16\"",
-            "PIPE": "5\" sch 40",
+            "SHAFT DIA": "3.4375",
+            "PIPE": "5 sch 40",
             "SHAFT SS/1018": "35,490",
             "SHAFT 4140": "49,140",
             "PIPE SS/CS": "70,791",
@@ -228,8 +228,8 @@ export default
             "3-BOLT": "145,701"
         },
         {
-            "SHAFT DIA": "3-7/16\"",
-            "PIPE": "5\" sch 80",
+            "SHAFT DIA": "3.4375",
+            "PIPE": "5 sch 80",
             "SHAFT SS/1018": "35,490",
             "SHAFT 4140": "49,140",
             "PIPE SS/CS": "96,539",
@@ -237,8 +237,8 @@ export default
             "3-BOLT": "145,701"
         },
         {
-            "SHAFT DIA": "3-7/16\"",
-            "PIPE": "5\" 80/10 clad",
+            "SHAFT DIA": "3.4375",
+            "PIPE": "5 80/10 clad",
             "SHAFT SS/1018": "35,490",
             "SHAFT 4140": "49,140",
             "PIPE SS/CS": "135,502",
@@ -246,8 +246,8 @@ export default
             "3-BOLT": "159,820"
         },
         {
-            "SHAFT DIA": "3-7/16\"",
-            "PIPE": "6\" sch 40",
+            "SHAFT DIA": "3.4375",
+            "PIPE": "6 sch 40",
             "SHAFT SS/1018": "35,490",
             "SHAFT 4140": "49,140",
             "PIPE SS/CS": "110,445",
@@ -255,8 +255,8 @@ export default
             "3-BOLT": "205,000"
         },
         {
-            "SHAFT DIA": "3-7/16\"",
-            "PIPE": "6\" sch 80",
+            "SHAFT DIA": "3.4375",
+            "PIPE": "6 sch 80",
             "SHAFT SS/1018": "35,490",
             "SHAFT 4140": "49,140",
             "PIPE SS/CS": "158,907",
@@ -264,8 +264,8 @@ export default
             "3-BOLT": "205,000"
         },
         {
-            "SHAFT DIA": "3-7/16\"",
-            "PIPE": "6\" 80/10 clad",
+            "SHAFT DIA": "3.4375",
+            "PIPE": "6 80/10 clad",
             "SHAFT SS/1018": "35,490",
             "SHAFT 4140": "49,140",
             "PIPE SS/CS": "214,041",
@@ -273,8 +273,8 @@ export default
             "3-BOLT": "221,361"
         },
         {
-            "SHAFT DIA": "3-15/16\"",
-            "PIPE": "6\" sch 40",
+            "SHAFT DIA": "3.9375",
+            "PIPE": "6 sch 40",
             "SHAFT SS/1018": "50,538",
             "SHAFT 4140": "69,975",
             "PIPE SS/CS": "110,445",
@@ -282,8 +282,8 @@ export default
             "3-BOLT": "249,824"
         },
         {
-            "SHAFT DIA": "3-15/16\"",
-            "PIPE": "6\" sch 80",
+            "SHAFT DIA": "3.9375",
+            "PIPE": "6 sch 80",
             "SHAFT SS/1018": "50,538",
             "SHAFT 4140": "69,975",
             "PIPE SS/CS": "158,907",
@@ -291,8 +291,8 @@ export default
             "3-BOLT": "249,824"
         },
         {
-            "SHAFT DIA": "3-15/16\"",
-            "PIPE": "6\" 80/10 clad",
+            "SHAFT DIA": "3.9375",
+            "PIPE": "6 80/10 clad",
             "SHAFT SS/1018": "50,538",
             "SHAFT 4140": "69,975",
             "PIPE SS/CS": "214,041",
@@ -300,8 +300,8 @@ export default
             "3-BOLT": "270,857"
         },
         {
-            "SHAFT DIA": "3-15/16\"",
-            "PIPE": "8\" sch 40",
+            "SHAFT DIA": "3.9375",
+            "PIPE": "8 sch 40",
             "SHAFT SS/1018": "50,538",
             "SHAFT 4140": "69,975",
             "PIPE SS/CS": "218,518",
@@ -309,8 +309,8 @@ export default
             "3-BOLT": "424,324"
         },
         {
-            "SHAFT DIA": "3-15/16\"",
-            "PIPE": "8\" sch 80",
+            "SHAFT DIA": "3.9375",
+            "PIPE": "8 sch 80",
             "SHAFT SS/1018": "50,538",
             "SHAFT 4140": "69,975",
             "PIPE SS/CS": "318,681",
@@ -318,8 +318,8 @@ export default
             "3-BOLT": "424,324"
         },
         {
-            "SHAFT DIA": "3-15/16\"",
-            "PIPE": "8\" 80/10 clad",
+            "SHAFT DIA": "3.9375",
+            "PIPE": "8 80/10 clad",
             "SHAFT SS/1018": "50,538",
             "SHAFT 4140": "69,975",
             "PIPE SS/CS": "413,200",
@@ -327,8 +327,8 @@ export default
             "3-BOLT": "450,984"
         },
         {
-            "SHAFT DIA": "4-7/16\"",
-            "PIPE": "6\" sch 40",
+            "SHAFT DIA": "4.4375",
+            "PIPE": "6 sch 40",
             "SHAFT SS/1018": "72,966",
             "SHAFT 4140": "101,030",
             "PIPE SS/CS": "110,445",
@@ -336,8 +336,8 @@ export default
             "3-BOLT": "259,609"
         },
         {
-            "SHAFT DIA": "4-7/16\"",
-            "PIPE": "6\" sch 80",
+            "SHAFT DIA": "4.4375",
+            "PIPE": "6 sch 80",
             "SHAFT SS/1018": "72,966",
             "SHAFT 4140": "101,030",
             "PIPE SS/CS": "158,907",
@@ -345,8 +345,8 @@ export default
             "3-BOLT": "259,609"
         },
         {
-            "SHAFT DIA": "4-7/16\"",
-            "PIPE": "6\" 80/10 clad",
+            "SHAFT DIA": "4.4375",
+            "PIPE": "6 80/10 clad",
             "SHAFT SS/1018": "72,966",
             "SHAFT 4140": "101,030",
             "PIPE SS/CS": "214,041",
@@ -354,8 +354,8 @@ export default
             "3-BOLT": "282,979"
         },
         {
-            "SHAFT DIA": "4-7/16\"",
-            "PIPE": "8\" sch 40",
+            "SHAFT DIA": "4.4375",
+            "PIPE": "8 sch 40",
             "SHAFT SS/1018": "72,966",
             "SHAFT 4140": "101,030",
             "PIPE SS/CS": "218,518",
@@ -363,8 +363,8 @@ export default
             "3-BOLT": "453,497"
         },
         {
-            "SHAFT DIA": "4-7/16\"",
-            "PIPE": "8\" sch 80",
+            "SHAFT DIA": "4.4375",
+            "PIPE": "8 sch 80",
             "SHAFT SS/1018": "72,966",
             "SHAFT 4140": "101,030",
             "PIPE SS/CS": "318,681",
@@ -372,8 +372,8 @@ export default
             "3-BOLT": "453,497"
         },
         {
-            "SHAFT DIA": "4-7/16\"",
-            "PIPE": "8\" 80/10 clad",
+            "SHAFT DIA": "4.4375",
+            "PIPE": "8 80/10 clad",
             "SHAFT SS/1018": "72,966",
             "SHAFT 4140": "101,030",
             "PIPE SS/CS": "413,200",
@@ -381,8 +381,8 @@ export default
             "3-BOLT": "483,120"
         },
         {
-            "SHAFT DIA": "4-15/16\"",
-            "PIPE": "8\" sch 40",
+            "SHAFT DIA": "4.9375",
+            "PIPE": "8 sch 40",
             "SHAFT SS/1018": "97,404",
             "SHAFT 4140": "119,882",
             "PIPE SS/CS": "218,518",
@@ -390,8 +390,8 @@ export default
             "3-BOLT": "519,071"
         },
         {
-            "SHAFT DIA": "4-15/16\"",
-            "PIPE": "8\" sch 80",
+            "SHAFT DIA": "4.9375",
+            "PIPE": "8 sch 80",
             "SHAFT SS/1018": "97,404",
             "SHAFT 4140": "119,882",
             "PIPE SS/CS": "318,681",
@@ -399,8 +399,8 @@ export default
             "3-BOLT": "519,071"
         },
         {
-            "SHAFT DIA": "4-15/16\"",
-            "PIPE": "8\" 80/10 clad",
+            "SHAFT DIA": "4.9375",
+            "PIPE": "8 80/10 clad",
             "SHAFT SS/1018": "97,404",
             "SHAFT 4140": "119,882",
             "PIPE SS/CS": "413,200",

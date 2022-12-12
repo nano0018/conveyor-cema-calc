@@ -1,24 +1,18 @@
 import dataFromTableB from '../data/js/tableB.js';
 import dataFromTableC from '../data/js/tableC.js';
 import dataFromTableD from '../data/js/tableD.js';
+import dataFromTableH2 from '../data/js/tableH2.js';
+import dataFromTableJ from '../data/js/tableJ.js';
+import dataFromTableK from '../data/js/tableK.js';
+import dataFromTableL from '../data/js/tableL.js';
 import dataFromTableN from '../data/js/tableN.js';
 import dataFromTableQ from '../data/js/tableQ.js';
+import dataFromTableQ1 from '../data/js/tableQ1.js';
 import dataFromTableM from '../data/js/tableM.js';
+import dataFromTableU from '../data/js/tableU.js';
 import dataFromTableV from '../data/js/tableV.js';
 import dataFromThreadTable from '../data/js/threadTable.js';
 import ScrewConveyor from './conveyorClass.js';
-
-//From table H, calculations for F0
-const fZero = () => {
-    if (HPf + HPm >= 5.2) {
-        const f0 = 1 
-        return f0;       
-    } else {
-        const f0 = (Math.log(HPf + HPm) * -0.6115) + 2.024;      
-        return f0;  
-    }  
-}
-
 
 //Load data from table B
 const dataTableB = () => {
@@ -196,7 +190,133 @@ const loadCf3 = (conveyor) => {
     }
 }
 
+const loadCin = (conveyor) => {
+    const data = dataFromTableV.TableV;
+    const inputData = conveyor.screwIncl;
+    return (data.find( e => e['Inclination in °'] === inputData))['Cin'];
+}
+
+const loadFd = (conveyor) => {
+    const data = dataFromTableL.TableL;
+    const inputData = conveyor.screwDiameter;
+    return (data.find( e => e['SCREW DIA.'] === inputData))['Fd']; 
+}
+
+const loadFm = (conveyor) => {
+    const data = dataFromTableB.TableB;
+    const inputData = conveyor.materialCode;
+    return (data.find( e => e['MATERIAL CLASS CODE'] === inputData))['MATERIAL FACTOR'];
+}
+
+const loadFb = (conveyor) => {
+    const data = dataFromTableM.TableM;
+    const inputData = conveyor.screwBearing;
+    return (data.find( e => e['BEARING TYPE'] === inputData))['Fb'];
+}
+
+const loadFf = (conveyor) => {
+
+    const loadData = (conveyor) => {
+        switch (conveyor.screwLoad) {
+            case 'Load15':
+                return dataFromTableJ.Ff15;
+            case 'Load30A':
+                return dataFromTableJ.Ff30;
+            case 'Load30B':
+                return dataFromTableJ.Ff30;
+            case 'Load45':
+                return dataFromTableJ.Ff30;
+            case 'Load90':
+                return dataFromTableJ.Ff30;
+            default:
+                return dataFromTableJ.Ff15;
+        } 
+    }
+
+    const data = loadData(conveyor);    
+    const inputData = conveyor.flightType;
+    return (data.find( e => e['TYPE OF FLIGHTING'] === inputData))['Ff'];
+}
+
+const loadFp = (conveyor) => {
+    const data = dataFromTableK.TableK;
+    const inputData = conveyor.paddleQty;
+    return (data.find( e => e['PADDLES'] === inputData))['Fp'];
+}
+
+//From table H, calculations for F0
+const loadFZero = (conveyor) => {
+    const frictionHP = conveyor.screwFrictionHP;
+    const materialHP = conveyor.screwMaterialHP;
+    if (frictionHP + materialHP >= 5.2) {
+        const fZero = 1 
+        return fZero;       
+    } else {
+        const fZero = (Math.log(frictionHP + materialHP) * -0.6115) + 2.024;      
+        return fZero;  
+    }  
+}
+
+const getPipeData = (conveyor) => {
+    const data = dataFromTableQ1.TableQ1;
+    const inputData = conveyor.screwPipeSize;
+    return (data.find( e => e['PIPE'] === inputData));
+}
+
+const getFlightWeight = (conveyor) => {
+    const data = dataFromTableU.TableU;
+    const inputData = conveyor.screwDiameter;
+    const inputData2 = conveyor.flightThickness;
+    const result = (data.find( e => e['SCREW DIAMETER'] === inputData));
+    return result[inputData2];
+}
+
 //Run calculations
+
+const upperSizeMotor = (conveyor) => {
+    const data = dataFromTableH2.TableH2;
+    const inputData = conveyor.screwPower;
+    return (data.find( e => e['HP'] >= inputData))['HP'];
+}
+
+const calculateTorque = (conveyor) => {
+    const upperMotor = upperSizeMotor(conveyor);
+    return (63025 * upperMotor / conveyor.conveyorSpeed);
+   
+}
+
+const getScrewWeight = (conveyor) => {
+    const flightsPerLength = (conveyor.lengthConveyor / 1000) / (conveyor.flightPitch * (conveyor.screwDiameter * 25.4 / 1000));
+    const flightWeight = getFlightWeight(conveyor);
+    const pipeWeight = (getPipeData(conveyor)).W;
+    console.log((pipeWeight) * (conveyor.lengthConveyor / 1000));
+    return (flightsPerLength * flightWeight) + parseFloat((pipeWeight) * (conveyor.lengthConveyor / 1000));
+}
+
+const calculateDeflection = (conveyor) => {
+    const kgToLb = 0.45747;
+    const inToMm = 25.4;
+    const modulusOfElasticity = 29000000; //psi
+    const pipeInertia = getPipeData(conveyor).I; //in4
+    const screwWeight = getScrewWeight(conveyor) / kgToLb; //lb
+    const deflection = (screwWeight * Math.pow((conveyor.lengthConveyor / inToMm), 3)) / (76.7 * modulusOfElasticity * pipeInertia) * inToMm;
+    return deflection; //mm
+}
+
+const calculateEquivalentStress = (conveyor) => {
+    const kgToLb = 0.45747;
+    const inToMm = 25.4;
+    const torque = calculateTorque(conveyor);
+    const screwWeight = getScrewWeight(conveyor) / kgToLb; //lb
+    const bendingMoment = ((conveyor.lengthConveyor / inToMm) * screwWeight) / 8; //lb*in
+    const neutralAxis = ((getPipeData(conveyor)).OD) / (2 * inToMm); //in
+    const pipeInertia = getPipeData(conveyor).I; //in4
+    const bendingStress = (bendingMoment * neutralAxis) / (pipeInertia * 1000); //ksi
+    const shearStress = (torque * neutralAxis) / (pipeInertia * 2000); //ksi
+    const reducedStress = Math.pow((Math.pow(bendingStress, 2)) + 3 * (Math.pow(shearStress, 2)), 0.5);
+    return reducedStress;
+}
+
 const calculate = document.getElementById('calculate');
 calculate.addEventListener('click', function(e){
     const safetyFactor = document.getElementById('safetyFactor').value;
@@ -214,6 +334,7 @@ calculate.addEventListener('click', function(e){
         // Gather information from HTML
 
         screwConveyor.materialDensity = document.getElementById('materialDensity').value;
+        screwConveyor.materialCode = document.getElementById('materialCode').value;
         screwConveyor.screwIncl = document.getElementById('screwIncl').value;
         screwConveyor.screwBearing = document.getElementById('screwBearing').value;
         screwConveyor.screwLoad = document.getElementById('screwLoad').value;
@@ -228,16 +349,28 @@ calculate.addEventListener('click', function(e){
         screwConveyor.safetyFactor = document.getElementById('safetyFactor').value;
         screwConveyor.transmissionRelation = document.getElementById('transmissionRelation').value;
         screwConveyor.massFlow = document.getElementById('massFlow').value;
+        console.log(screwConveyor.screwIncl, typeof(screwConveyor.screwIncl));
 
         const currentConveyorCapacity = conveyorCapacity(screwConveyor);
         const cf2 = loadCf2(screwConveyor);
         const cf1 = loadCf1(screwConveyor);
         const cf3 = loadCf3(screwConveyor);
+        const cin = loadCin(screwConveyor);
+        const fd = loadFd(screwConveyor);
+        const fb = loadFb(screwConveyor);
+        const fm = loadFm(screwConveyor);
+        const ff = loadFf(screwConveyor);
+        const fp = loadFp(screwConveyor);                     
         
         screwConveyor.calcFlowCapacity();
         screwConveyor.calculateConveyorSpeed(cf1, cf2, cf3,currentConveyorCapacity);
-        console.log(screwConveyor.conveyorSpeed)
-        console.log(screwConveyor.flightPitch, cf1, screwConveyor.flightType, cf2, screwConveyor.paddleQty ,cf3);
+        screwConveyor.calculateRetentionTime();        
+        screwConveyor.calculateRequiredScrewPower(fd, fb, fm, ff, fp);
+        const fZero = loadFZero(screwConveyor);
+        screwConveyor.calculateTotalPower(fZero, cin);
+
+        console.log(upperSizeMotor(screwConveyor));
+        console.log(screwConveyor.screwFrictionHP,  screwConveyor.screwMaterialHP, screwConveyor.screwPower);
         screwConveyor.getConveyorInput();
 
     } else {
@@ -255,3 +388,44 @@ dataTableQ();
 dataTableV();
 dataTableC();
 dataTableThread();
+
+// Test data
+const testConvey = new ScrewConveyor("18", "14630.4");
+testConvey.materialDensity = "21";
+testConvey.materialCode = "21B35PY";
+testConvey.screwIncl = "0";
+testConvey.screwBearing = "Bronze";
+testConvey.screwLoad = "Load30A";
+testConvey.screwSupport = true;
+testConvey.screwPipeSize = "2 sch 40";
+testConvey.flightThickness = "1/4";
+testConvey.flightPitch = "1";
+testConvey.flightType = "Ribbon";
+testConvey.paddleQty = "0";
+testConvey.massFlow = "19050.864";
+
+testConvey.calcFlowCapacity();
+const currentConveyorCapacity = conveyorCapacity(testConvey);
+const cf2 = loadCf2(testConvey);
+const cf1 = loadCf1(testConvey);
+const cf3 = loadCf3(testConvey);
+const cin = loadCin(testConvey);
+const fd = loadFd(testConvey);
+const fb = loadFb(testConvey);
+const fm = loadFm(testConvey);
+const ff = loadFf(testConvey);
+const fp = loadFp(testConvey);
+
+
+testConvey.calculateConveyorSpeed(cf1, cf2, cf3,currentConveyorCapacity);
+testConvey.calculateRetentionTime();        
+testConvey.calculateRequiredScrewPower(fd, fb, fm, ff, fp);
+const fZero = loadFZero(testConvey);
+testConvey.calculateTotalPower(fZero, cin);
+console.log(cf1, cf2, cf3, cin, fd, fb, fm, ff, fp);
+console.log(getPipeData(testConvey));
+console.log(testConvey.conveyorSpeed);
+calculateTorque(testConvey);
+testConvey.getConveyorInput();
+console.log(calculateDeflection(testConvey));
+console.log(calculateEquivalentStress(testConvey));

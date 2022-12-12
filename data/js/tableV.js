@@ -4,43 +4,43 @@ export default
     "TableV": [
         {
             "Inclination in °": "0",
-            "Correction factor C": "1.000"
+            "Cin": "1.000"
         },
         {
             "Inclination in °": "5",
-            "Correction factor C": "0.900"
+            "Cin": "1.154"
         },
         {
             "Inclination in °": "10",
-            "Correction factor C": "0.800"
+            "Cin": "1.256"
         },
         {
             "Inclination in °": "15",
-            "Correction factor C": "0.700"
+            "Cin": "1.5"
         },
         {
             "Inclination in °": "20",
-            "Correction factor C": "0.650"
+            "Cin": "1.605"
         },
         {
             "Inclination in °": "25",
-            "Correction factor C": "0.540"
+            "Cin": "1.705"
         },
         {
             "Inclination in °": "30",
-            "Correction factor C": "0.450"
+            "Cin": "1.804"
         },
         {
             "Inclination in °": "35",
-            "Correction factor C": "0.360"
+            "Cin": "1.904"
         },
         {
             "Inclination in °": "40",
-            "Correction factor C": "0.270"
+            "Cin": "1.953"
         },
         {
             "Inclination in °": "45",
-            "Correction factor C": "0.180"
+            "Cin": "2"
         }
     ]
 }

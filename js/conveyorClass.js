@@ -24,6 +24,14 @@ export default class ScrewConveyor {
         return this._massFlow;
     }
 
+    set materialCode(materialCode) {
+        this._materialCode = materialCode;
+    }
+
+    get materialCode() {
+        return this._materialCode;
+    }
+
     // Conveyor properties
 
     set screwLoad(screwLoad) {
@@ -116,27 +124,16 @@ export default class ScrewConveyor {
         return this._safetyFactor;
     }
 
-    // flowCapacity is calculated by mass flow
+    // Flow and speed properties
     
+    // flowCapacity is calculated by mass flow
     set flowCapacity(flowCapacity) {
+        
         this._flowCapacity = flowCapacity;
     }
 
     get flowCapacity() {
         return this._flowCapacity;
-    }
-
-    calcFlowCapacity() {
-        const lbToKg =  0.453592;
-        this._flowCapacity = (this.massFlow / (this.materialDensity * lbToKg));
-    }
-
-    set transmissionRelation(transmissionRelation) {
-        this._transmissionRelation = transmissionRelation;
-    }
-
-    get transmissionRelation() {
-        return this._transmissionRelation;
     }
 
     set conveyorSpeed(conveyorSpeed) {
@@ -146,16 +143,77 @@ export default class ScrewConveyor {
     get conveyorSpeed() {
         return this._conveyorSpeed;
     }
+
+    set retentionTime(retentionTime) {
+        this._retentionTime = retentionTime;
+    }
+
+    get retentionTime() {
+        return this._retentionTime;
+    }
+    
+    // Transmission and motor power properties
+
+    set transmissionRelation(transmissionRelation) {
+        this._transmissionRelation = transmissionRelation;
+    }
+
+    get transmissionRelation() {
+        return this._transmissionRelation;
+    }    
+
+    set screwFrictionHP(screwFrictionHP) {
+        this._screwFrictionHP = screwFrictionHP;
+    }
+
+    get screwFrictionHP() {
+        return this._screwFrictionHP;
+    }
+
+    set screwMaterialHP(screwMaterialHP) {
+        this._screwMaterialHP = screwMaterialHP;
+    }
+
+    get screwMaterialHP() {
+        return this._screwMaterialHP;
+    }
+
+    set screwPower(screwPower) {
+        this._screwPower = screwPower;
+    }
+
+    get screwPower() {
+        return this._screwPower;
+    }
     //End setters and getters
 
     // Conveyor calculations
 
-    calculateConveyorSpeed(Cf1, Cf2, Cf3, conveyorCapacity) {
-        
-        const equivalentCapacity = this._flowCapacity * Cf1 * Cf2 * Cf3;
+    calcFlowCapacity() {
+        const lbToKg =  0.453592;
+        this._flowCapacity = (this.massFlow / (this.materialDensity * lbToKg));
+    }
+
+    calculateConveyorSpeed(Cf1, Cf2, Cf3, conveyorCapacity) {        
+        const equivalentCapacity = this.flowCapacity * Cf1 * Cf2 * Cf3;
         this._conveyorSpeed = equivalentCapacity / conveyorCapacity ;
     }
-    
+
+    calculateRetentionTime() {
+        const lengthOnePitch = this.flightPitch * this.screwDiameter;
+        const mmToFt = (1 / (25.4 * 12));
+        this._retentionTime = ( (this.lengthConveyor / mmToFt) ) / (this.conveyorSpeed * lengthOnePitch);
+    }
+
+    calculateRequiredScrewPower(fd, fb, fm, ff, fp) {
+        const mmToFt = (1 / (25.4 * 12));
+        this._screwFrictionHP = ((this.lengthConveyor * mmToFt) * this.conveyorSpeed * fd * fb) / 1000000;
+        this._screwMaterialHP = (this.flowCapacity * (this.lengthConveyor * mmToFt) * this.materialDensity * fm * ff * fp) / 1000000;
+    }
+
+    calculateTotalPower(fZero, cin) {
+        this._screwPower = ((this.screwFrictionHP + (this.screwMaterialHP * cin)) / 0.88) * fZero;
+    }
 
     // Prints conveyor data
 
