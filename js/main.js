@@ -86,7 +86,7 @@ const dataTableV = () => {
 const dataTableThread = () => {
     const screwBolt = document.getElementById('screwBolt');
     for (const e of dataFromThreadTable.ThreadTable) {
-        screwBolt.innerHTML += `<option value="${e['Major Diameter']}">${e['Major Diameter']+'°'}</option>`; 
+        screwBolt.innerHTML += `<option value="${e['Major Diameter']}">${e['Major Diameter']}</option>`; 
     }
 }
 
@@ -271,6 +271,14 @@ const getFlightWeight = (conveyor) => {
     return result[inputData2];
 }
 
+const getBoltThreadData = (conveyor) => {
+    const data = dataFromThreadTable.ThreadTable;
+    const inputData = conveyor.screwBolt;
+    const inputData2 = conveyor.screwBoltGrade;
+    const result =  (data.find( e => e['Major Diameter'] === inputData));
+    return result[inputData2];
+}
+
 //Run calculations
 
 const upperSizeMotor = (conveyor) => {
@@ -306,6 +314,7 @@ const calculateDeflection = (conveyor) => {
 const calculateEquivalentStress = (conveyor) => {
     const kgToLb = 0.45747;
     const inToMm = 25.4;
+    const ksiToMPa = 6.89476;
     const torque = calculateTorque(conveyor);
     const screwWeight = getScrewWeight(conveyor) / kgToLb; //lb
     const bendingMoment = ((conveyor.lengthConveyor / inToMm) * screwWeight) / 8; //lb*in
@@ -314,7 +323,32 @@ const calculateEquivalentStress = (conveyor) => {
     const bendingStress = (bendingMoment * neutralAxis) / (pipeInertia * 1000); //ksi
     const shearStress = (torque * neutralAxis) / (pipeInertia * 2000); //ksi
     const reducedStress = Math.pow((Math.pow(bendingStress, 2)) + 3 * (Math.pow(shearStress, 2)), 0.5);
-    return reducedStress;
+    return reducedStress * ksiToMPa; //MPa
+}
+
+const calculateScrewPipeSF = (conveyor) => {
+    const equivalentStress = calculateEquivalentStress(conveyor); //MPa
+    const a53GrBYieldStrength = 241; //Mpa
+    const safetyFactor = a53GrBYieldStrength / equivalentStress;
+    return safetyFactor;
+}
+
+const calculateBoltSafetyFactor = (conveyor) => {
+    const torque  =  calculateTorque(conveyor); //lb
+    const limitLoadBolt = getBoltThreadData(conveyor); //lb
+    return limitLoadBolt / torque;
+}
+
+const calculateReducerSpeed = (conveyor) => {
+    const stdMotorSpeed = 1750; //RPM
+    const transmissionRelation = conveyor.transmissionRelation;
+    const conveyorSpeed = conveyor.conveyorSpeed; //RPM
+    const reducerSpeed = conveyorSpeed / transmissionRelation;
+    const reducerRatio = stdMotorSpeed / reducerSpeed;
+    return {
+        "reducerSpeed": reducerSpeed, 
+        "reducerRatio": reducerRatio
+    };
 }
 
 const calculate = document.getElementById('calculate');
@@ -349,7 +383,6 @@ calculate.addEventListener('click', function(e){
         screwConveyor.safetyFactor = document.getElementById('safetyFactor').value;
         screwConveyor.transmissionRelation = document.getElementById('transmissionRelation').value;
         screwConveyor.massFlow = document.getElementById('massFlow').value;
-        console.log(screwConveyor.screwIncl, typeof(screwConveyor.screwIncl));
 
         const currentConveyorCapacity = conveyorCapacity(screwConveyor);
         const cf2 = loadCf2(screwConveyor);
@@ -368,9 +401,26 @@ calculate.addEventListener('click', function(e){
         screwConveyor.calculateRequiredScrewPower(fd, fb, fm, ff, fp);
         const fZero = loadFZero(screwConveyor);
         screwConveyor.calculateTotalPower(fZero, cin);
+        const reducerData = calculateReducerSpeed(screwConveyor);
+        calculateDeflection(screwConveyor);
 
-        console.log(upperSizeMotor(screwConveyor));
-        console.log(screwConveyor.screwFrictionHP,  screwConveyor.screwMaterialHP, screwConveyor.screwPower);
+        const screwDeflection = (calculateDeflection(screwConveyor));
+        const reducerStress = (calculateEquivalentStress(screwConveyor));
+        const screwPipeSF = calculateScrewPipeSF(screwConveyor);
+        const screwBoltSF = (calculateBoltSafetyFactor(screwConveyor));
+
+                
+        document.getElementById('realPower').value = screwConveyor.screwPower;
+        document.getElementById('closestPower').value = upperSizeMotor(screwConveyor);
+        document.getElementById('transmissionRelationC').value = screwConveyor.transmissionRelation;
+        document.getElementById('conveyorSpeed').value = screwConveyor.conveyorSpeed;
+        document.getElementById('reducerRatio').value = reducerData.reducerRatio;
+        document.getElementById('reducerSpeed').value = reducerData.reducerSpeed;
+        document.getElementById('screwBoltSF').value = screwBoltSF;
+        document.getElementById('screwDeflection').value = screwDeflection;
+        document.getElementById('reducerStress').value = reducerStress;
+        document.getElementById('screwPipeSF').value = screwPipeSF;
+
         screwConveyor.getConveyorInput();
 
     } else {
@@ -390,41 +440,45 @@ dataTableC();
 dataTableThread();
 
 // Test data
-const testConvey = new ScrewConveyor("18", "14630.4");
-testConvey.materialDensity = "21";
-testConvey.materialCode = "21B35PY";
-testConvey.screwIncl = "0";
-testConvey.screwBearing = "Bronze";
-testConvey.screwLoad = "Load30A";
-testConvey.screwSupport = true;
-testConvey.screwPipeSize = "2 sch 40";
-testConvey.flightThickness = "1/4";
-testConvey.flightPitch = "1";
-testConvey.flightType = "Ribbon";
-testConvey.paddleQty = "0";
-testConvey.massFlow = "19050.864";
+// const testConvey = new ScrewConveyor("18", "14630.4");
+// testConvey.materialDensity = "21";
+// testConvey.materialCode = "21B35PY";
+// testConvey.screwIncl = "0";
+// testConvey.screwBearing = "Bronze";
+// testConvey.screwLoad = "Load30A";
+// testConvey.screwSupport = true;
+// testConvey.screwPipeSize = "2 sch 40";
+// testConvey.flightThickness = "1/4";
+// testConvey.flightPitch = "1";
+// testConvey.flightType = "Ribbon";
+// testConvey.paddleQty = "0";
+// testConvey.massFlow = "19050.864";
+// testConvey.screwBolt = "1/2 - 13"
+// testConvey.screwBoltGrade = "5";
 
-testConvey.calcFlowCapacity();
-const currentConveyorCapacity = conveyorCapacity(testConvey);
-const cf2 = loadCf2(testConvey);
-const cf1 = loadCf1(testConvey);
-const cf3 = loadCf3(testConvey);
-const cin = loadCin(testConvey);
-const fd = loadFd(testConvey);
-const fb = loadFb(testConvey);
-const fm = loadFm(testConvey);
-const ff = loadFf(testConvey);
-const fp = loadFp(testConvey);
+// testConvey.calcFlowCapacity();
+// const currentConveyorCapacity = conveyorCapacity(testConvey);
+// const cf2 = loadCf2(testConvey);
+// const cf1 = loadCf1(testConvey);
+// const cf3 = loadCf3(testConvey);
+// const cin = loadCin(testConvey);
+// const fd = loadFd(testConvey);
+// const fb = loadFb(testConvey);
+// const fm = loadFm(testConvey);
+// const ff = loadFf(testConvey);
+// const fp = loadFp(testConvey);
 
 
-testConvey.calculateConveyorSpeed(cf1, cf2, cf3,currentConveyorCapacity);
-testConvey.calculateRetentionTime();        
-testConvey.calculateRequiredScrewPower(fd, fb, fm, ff, fp);
-const fZero = loadFZero(testConvey);
-testConvey.calculateTotalPower(fZero, cin);
-console.log(getPipeData(testConvey));
-console.log(testConvey.conveyorSpeed);
-calculateTorque(testConvey);
-testConvey.getConveyorInput();
-console.log(calculateDeflection(testConvey));
-console.log(calculateEquivalentStress(testConvey));
+// testConvey.calculateConveyorSpeed(cf1, cf2, cf3,currentConveyorCapacity);
+// testConvey.calculateRetentionTime();        
+// testConvey.calculateRequiredScrewPower(fd, fb, fm, ff, fp);
+// const fZero = loadFZero(testConvey);
+// testConvey.calculateTotalPower(fZero, cin);
+// console.log(getPipeData(testConvey));
+// console.log(testConvey.conveyorSpeed);
+// calculateTorque(testConvey);
+// testConvey.getConveyorInput();
+// console.log(calculateDeflection(testConvey));
+// console.log(calculateEquivalentStress(testConvey));
+// console.log(getBoltThreadData(testConvey));
+// console.log(calculateBoltSafetyFactor(testConvey));
