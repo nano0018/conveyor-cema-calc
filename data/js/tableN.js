@@ -12,14 +12,6 @@ export default
         },
         {
             "SCREW DIA": "9",
-            "SHAFT  SIZE DIA": "1.5",
-            "BOLTS PER COUPLING": "2-bolt",
-            "SECTIONAL SCREW FLIGHT THICKNESS*": "10 ga",
-            "TROUGH  THICKNESS": "14 ga",
-            "COVER THICKNESS": "14 ga"
-        },
-        {
-            "SCREW DIA": "9",
             "SHAFT  SIZE DIA": "2",
             "BOLTS PER COUPLING": "2-bolt",
             "SECTIONAL SCREW FLIGHT THICKNESS*": "10 ga",

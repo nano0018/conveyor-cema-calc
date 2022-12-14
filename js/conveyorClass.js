@@ -1,225 +1,232 @@
 export default class ScrewConveyor {
+  constructor(screwDiameter, lengthConveyor) {
+    this.screwDiameter = screwDiameter;
+    this.lengthConveyor = lengthConveyor;
+  }
 
-    constructor(screwDiameter, lengthConveyor) {
-        this.screwDiameter = screwDiameter;
-        this.lengthConveyor = lengthConveyor;
-    }
+  // Start setters and getters
+  // Material data properties
 
-    // Start setters and getters
-    // Material data properties
+  set materialDensity(materialDensity) {
+    this._materialDensity = materialDensity;
+  }
 
-    set materialDensity(materialDensity) {
-        this._materialDensity = materialDensity;
-    }
-    
-    get materialDensity() {
-        return this._materialDensity;
-    }
+  get materialDensity() {
+    return this._materialDensity;
+  }
 
-    set massFlow(massFlow) {
-        this._massFlow = massFlow;
-    }
+  set massFlow(massFlow) {
+    this._massFlow = massFlow;
+  }
 
-    get massFlow() {
-        return this._massFlow;
-    }
+  get massFlow() {
+    return this._massFlow;
+  }
 
-    set materialCode(materialCode) {
-        this._materialCode = materialCode;
-    }
+  set materialCode(materialCode) {
+    this._materialCode = materialCode;
+  }
 
-    get materialCode() {
-        return this._materialCode;
-    }
+  get materialCode() {
+    return this._materialCode;
+  }
 
-    // Conveyor properties
+  // Conveyor properties
 
-    set screwLoad(screwLoad) {
-        this._screwLoad = screwLoad;
-    }
+  set screwLoad(screwLoad) {
+    this._screwLoad = screwLoad;
+  }
 
-    get screwLoad() {
-        return this._screwLoad;
-    }
+  get screwLoad() {
+    return this._screwLoad;
+  }
 
-    set screwIncl(screwIncl) {
-        this._screwIncl = screwIncl;
-    }
+  set screwIncl(screwIncl) {
+    this._screwIncl = screwIncl;
+  }
 
-    get screwIncl() {
-        return this._screwIncl;
-    }
+  get screwIncl() {
+    return this._screwIncl;
+  }
 
-    set screwBearing(screwBearing) {
-        this._screwBearing = screwBearing;
-    }
+  set screwBearing(screwBearing) {
+    this._screwBearing = screwBearing;
+  }
 
-    get screwBearing() {
-        return this._screwBearing;
-    }
+  get screwBearing() {
+    return this._screwBearing;
+  }
 
-    set screwSupport(screwSupport) {
-        this._screwSupport = screwSupport;
-    }
+  set screwSupport(screwSupport) {
+    this._screwSupport = screwSupport;
+  }
 
-    get screwSupport() {
-        return this._screwSupport;
-    }
+  get screwSupport() {
+    return this._screwSupport;
+  }
 
-    // Screw properties
+  // Screw properties
 
-    set screwPipeSize(screwPipeSize) {
-        this._screwPipeSize = screwPipeSize;
-    }
+  set screwPipeSize(screwPipeSize) {
+    this._screwPipeSize = screwPipeSize;
+  }
 
-    get screwPipeSize() {
-        return this._screwPipeSize;
-    }
+  get screwPipeSize() {
+    return this._screwPipeSize;
+  }
 
-    set flightPitch(flightPitch) {
-        this._flightPitch = flightPitch;
-    }
+  set flightPitch(flightPitch) {
+    this._flightPitch = flightPitch;
+  }
 
-    get flightPitch() {
-        return this._flightPitch;
-    }
+  get flightPitch() {
+    return this._flightPitch;
+  }
 
-    set flightThickness(flightThickness) {
-        this._flightThickness = flightThickness;
-    }
+  set flightThickness(flightThickness) {
+    this._flightThickness = flightThickness;
+  }
 
-    get flightThickness() {
-        return this._flightThickness
-    }
+  get flightThickness() {
+    return this._flightThickness;
+  }
 
-    set paddleQty(paddleQty) {
-        this._paddleQty = paddleQty;
-    }
+  set paddleQty(paddleQty) {
+    this._paddleQty = paddleQty;
+  }
 
-    get paddleQty() {
-        return this._paddleQty;
-    }
-    
-    set screwBolt(screwBolt) {
-        this._screwBolt = screwBolt;
-    }
+  get paddleQty() {
+    return this._paddleQty;
+  }
 
-    get screwBolt() {
-        return this._screwBolt;
-    }
+  set screwBolt(screwBolt) {
+    this._screwBolt = screwBolt;
+  }
 
-    set screwBoltGrade(screwBoltGrade) {
-        this._screwBoltGrade = screwBoltGrade;
-    }
+  get screwBolt() {
+    return this._screwBolt;
+  }
 
-    get screwBoltGrade() {
-        return this._screwBoltGrade;
-    }
+  set screwBoltGrade(screwBoltGrade) {
+    this._screwBoltGrade = screwBoltGrade;
+  }
 
-    set safetyFactor(safetyFactor) {
-        this._safetyFactor =  safetyFactor;
-    }
-    
-    get safetyFactor() {
-        return this._safetyFactor;
-    }
+  get screwBoltGrade() {
+    return this._screwBoltGrade;
+  }
 
-    // Flow and speed properties
-    
-    // flowCapacity is calculated by mass flow
-    set flowCapacity(flowCapacity) {
-        
-        this._flowCapacity = flowCapacity;
-    }
+  set safetyFactor(safetyFactor) {
+    this._safetyFactor = safetyFactor;
+  }
 
-    get flowCapacity() {
-        return this._flowCapacity;
-    }
+  get safetyFactor() {
+    return this._safetyFactor;
+  }
 
-    set conveyorSpeed(conveyorSpeed) {
-        this._conveyorSpeed = conveyorSpeed;
-    }
+  // Flow and speed properties
 
-    get conveyorSpeed() {
-        return this._conveyorSpeed;
-    }
+  // flowCapacity is calculated by mass flow
+  set flowCapacity(flowCapacity) {
+    this._flowCapacity = flowCapacity;
+  }
 
-    set retentionTime(retentionTime) {
-        this._retentionTime = retentionTime;
-    }
+  get flowCapacity() {
+    return this._flowCapacity;
+  }
 
-    get retentionTime() {
-        return this._retentionTime;
-    }
-    
-    // Transmission and motor power properties
+  set conveyorSpeed(conveyorSpeed) {
+    this._conveyorSpeed = conveyorSpeed;
+  }
 
-    set transmissionRelation(transmissionRelation) {
-        this._transmissionRelation = transmissionRelation;
-    }
+  get conveyorSpeed() {
+    return this._conveyorSpeed;
+  }
 
-    get transmissionRelation() {
-        return this._transmissionRelation;
-    }    
+  set retentionTime(retentionTime) {
+    this._retentionTime = retentionTime;
+  }
 
-    set screwFrictionHP(screwFrictionHP) {
-        this._screwFrictionHP = screwFrictionHP;
-    }
+  get retentionTime() {
+    return this._retentionTime;
+  }
 
-    get screwFrictionHP() {
-        return this._screwFrictionHP;
-    }
+  // Transmission and motor power properties
 
-    set screwMaterialHP(screwMaterialHP) {
-        this._screwMaterialHP = screwMaterialHP;
-    }
+  set transmissionRelation(transmissionRelation) {
+    this._transmissionRelation = transmissionRelation;
+  }
 
-    get screwMaterialHP() {
-        return this._screwMaterialHP;
-    }
+  get transmissionRelation() {
+    return this._transmissionRelation;
+  }
 
-    set screwPower(screwPower) {
-        this._screwPower = screwPower;
-    }
+  set screwFrictionHP(screwFrictionHP) {
+    this._screwFrictionHP = screwFrictionHP;
+  }
 
-    get screwPower() {
-        return this._screwPower;
-    }
-    //End setters and getters
+  get screwFrictionHP() {
+    return this._screwFrictionHP;
+  }
 
-    // Conveyor calculations
+  set screwMaterialHP(screwMaterialHP) {
+    this._screwMaterialHP = screwMaterialHP;
+  }
 
-    calcFlowCapacity() {
-        const lbToKg =  0.453592;
-        this._flowCapacity = (this.massFlow / (this.materialDensity * lbToKg));
-    }
+  get screwMaterialHP() {
+    return this._screwMaterialHP;
+  }
 
-    calculateConveyorSpeed(Cf1, Cf2, Cf3, conveyorCapacity) {        
-        const equivalentCapacity = this.flowCapacity * Cf1 * Cf2 * Cf3;
-        this._conveyorSpeed = equivalentCapacity / conveyorCapacity ;
-    }
+  set screwPower(screwPower) {
+    this._screwPower = screwPower;
+  }
 
-    calculateRetentionTime() {
-        const lengthOnePitch = this.flightPitch * this.screwDiameter;
-        const mmToFt = (1 / (25.4 * 12));
-        this._retentionTime = ( (this.lengthConveyor / mmToFt) ) / (this.conveyorSpeed * lengthOnePitch);
-    }
+  get screwPower() {
+    return this._screwPower;
+  }
+  //End setters and getters
 
-    calculateRequiredScrewPower(fd, fb, fm, ff, fp) {
-        const mmToFt = (1 / (25.4 * 12));
-        this._screwFrictionHP = ((this.lengthConveyor * mmToFt) * this.conveyorSpeed * fd * fb) / 1000000;
-        this._screwMaterialHP = (this.flowCapacity * (this.lengthConveyor * mmToFt) * this.materialDensity * fm * ff * fp) / 1000000;
-    }
+  // Conveyor calculations
 
-    calculateTotalPower(fZero, cin) {
-        this._screwPower = ((this.screwFrictionHP + (this.screwMaterialHP * cin)) / 0.88) * fZero;
-    }
+  calcFlowCapacity() {
+    const lbToKg = 0.453592;
+    this._flowCapacity = this.massFlow / (this.materialDensity * lbToKg);
+  }
 
-    // Prints conveyor data
+  calculateConveyorSpeed(Cf1, Cf2, Cf3, conveyorCapacity) {
+    const equivalentCapacity = this.flowCapacity * Cf1 * Cf2 * Cf3;
+    this._conveyorSpeed = equivalentCapacity / conveyorCapacity;
+  }
 
-    getConveyorInput() {
-        const outputString = 
-        `
+  calculateRetentionTime() {
+    const lengthOnePitch = this.flightPitch * this.screwDiameter;
+    const mmToFt = 1 / (25.4 * 12);
+    this._retentionTime =
+      this.lengthConveyor / mmToFt / (this.conveyorSpeed * lengthOnePitch);
+  }
+
+  calculateRequiredScrewPower(fd, fb, fm, ff, fp) {
+    const mmToFt = 1 / (25.4 * 12);
+    this._screwFrictionHP =
+      (this.lengthConveyor * mmToFt * this.conveyorSpeed * fd * fb) / 1000000;
+    this._screwMaterialHP =
+      (this.flowCapacity *
+        (this.lengthConveyor * mmToFt) *
+        this.materialDensity *
+        fm *
+        ff *
+        fp) /
+      1000000;
+  }
+
+  calculateTotalPower(fZero, cin) {
+    this._screwPower =
+      ((this.screwFrictionHP + this.screwMaterialHP * cin) / 0.88) * fZero;
+  }
+
+  // Prints conveyor data
+
+  getConveyorInput() {
+    const outputString = `
         ****Datos del transportador****
 
         Díametro del transportador: ${this.screwDiameter} in
@@ -240,7 +247,7 @@ export default class ScrewConveyor {
         Flujo volumétrico requerido: ${this.flowCapacity} ft3/h
         Relación de transmisión: ${this.transmissionRelation}
 
-        ******************************`
-        console.log(outputString);
-    }
-};
+        ******************************`;
+    console.log(outputString);
+  }
+}
