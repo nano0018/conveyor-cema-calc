@@ -16,15 +16,16 @@ body {
   width: 100%;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  /* display: none; <- Crashes Chrome on hover */
-  -webkit-appearance: none;
-  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+.sidebar {
+  margin-top: var(--navbar-weight);
+  position: fixed;
+  width: 150px;
 }
 
-input[type="number"] {
-  -moz-appearance: textfield; /* Firefox */
+.sidebar li {
+  list-style: none;
+  position: relative;
+  width: 100%;
 }
 
 .navbar {
@@ -37,6 +38,7 @@ input[type="number"] {
   padding: 10px;
   z-index: 1;
 }
+
 
 .navbar a:hover {
   color: var(--color1);
@@ -71,17 +73,6 @@ h2 {
   width: 100hv;
 }
 
-.input-data {
-  width: var(--width-form);
-}
-
-.section-data {
-  border: solid 2px var(--color4);
-  border-radius: 10px;
-  padding: 5%;
-  margin-bottom: 10px;
-}
-
 .container {
   margin-top: 0px;
   display: flex;
@@ -91,31 +82,22 @@ h2 {
   flex: 1;
 }
 
-.input-block {
-  height: 40px;
-  display: inline-block;
-  width: 100%;
-  margin-top: 10px;
+table {
+  text-align: center;
 }
 
-.input-label {
-  width: 50%;
-  padding-right: 10px;
+.left-item {
+  text-align: left;
 }
 
-.select-option {
-  width: 100%;
-  margin: 5px 0;
-  height: 25px;
+th:not(.wide-title) {
+  width: 100px;
 }
 
-.input-option {
-  display: flex;
-  width: calc(100% - 14px);
-  height: 21px;
-  padding: 0 5px;
-  margin: 5px 0;
+.note {
+  max-width: 360px;
 }
+
 
 footer {
   background-color: var(--color4);

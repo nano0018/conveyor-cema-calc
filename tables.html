@@ -1,55 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <script
-          src="https://kit.fontawesome.com/df9a1799f4.js"
-          crossorigin="anonymous"
-        ></script>
-        <link
-          href="https://fonts.googleapis.com/css?family=Archivo Narrow"
-          rel="stylesheet"
-        />
-        <link rel="stylesheet" href="./css/index.css" />
-        <title>Conveyor calculation</title>
-      </head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/df9a1799f4.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Archivo Narrow"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/tables.css" />
+    <title>Conveyor calculation</title>
+  </head>
+  <body>
     <nav class="navbar">
-        <div class="navbar-container">
-          <div class="logo">
-            <a href="#">Conveyor tool</a>          
-          </div>
-          <div class="link-container">
-            <a href="./index.html">Conveyor calculation</a>
-            <a href="./tables.html">Calculation tables</a>
-          </div>
+      <div class="navbar-container">
+        <div class="logo">
+          <a href="#">Conveyor tool</a>
         </div>
+        <div class="link-container">
+          <a href="./index.html">Conveyor calculation</a>
+          <a href="./tables.html">Calculation tables</a>
+        </div>
+      </div>
+    </nav>
+    <section class="body">
+      <nav class="sidebar">
+        <header>Listado de tablas</header>
+        <ul>
+          <li>
+            <a href="#table_b">Tabla B</a>
+          </li>
+          <li>
+            <a href="#table_c1">Tabla C1</a>
+          </li>
+          <li>
+            <a href="#table_c2">Tabla C2</a>
+          </li>
+          <li>
+            <a href="#table_c3">Tabla C3</a>
+          </li>
+          <li>
+            <a href="#table_d">Tabla D</a>
+          </li>
+          <li>
+            <a href="#table_e">Tabla E</a>
+          </li>
+          <li>
+            <a href="#table_g1">Tabla G1</a>
+          </li>
+          <li>
+            <a href="#table_g2">Tabla G2</a>
+          </li>
+          <li>
+            <a href="#table_h2">Tabla B</a>
+          </li>
+          <li>
+            <a href="#table_b">Tabla B</a>
+          </li>
+          <li>
+            <a href="#table_b">Tabla B</a>
+          </li>
+          <li>
+            <a href="#table_b">Tabla B</a>
+          </li>
+          <li>
+            <a href="#table_b">Tabla B</a>
+          </li>
+        </ul>
       </nav>
-      <section class="body">
-        <div class="container">
-            <h4>Tabla B</h4>
-            <table>                
-                <tr>
-                    <th>Material</th>
-                    <th>Código del material</th>
-                    <th>Carga del transportador</th>
-                    <th>Densidad lb/ft<sup>3</sup></th>
-                    <th>Factor del material</th>
-                </tr>
-            </table>
+      <div class="container">
+        <div id="table_b">
+          <!-- Table B -->
+          <h4>Tabla B</h4>
+          <table id="tableB">
+            <tr>
+              <th class="left-item wide-title">Material</th>
+              <th>Código del material</th>
+              <th>Carga del transportador</th>
+              <th>Grupo del material</th>
+              <th>Densidad [lb/ft<sup>3</sup>]</th>
+              <th>Factor del material</th>
+            </tr>
+          </table>
         </div>
-      </section>
-      <footer>
-        <div class="container">
-          <h5 class="end-logo">Desarrollado por: Daniel Alberto Cifuentes Castro</h5>
-          <div>
-            <a href="https://github.com/nano0018"><i class="fa-brands fa-github end-logo"></i>GitHub</a>
-            <a href="https://gitlab.com/nano0018"><i class="fa-brands fa-gitlab end-logo"></i>GitLab</a>
-          </div>
+        <div id="table_c1">
+          <!-- Table C1 -->
+          <h4>Tabla C1</h4>
+          <table id="tableC1">
+            <tr>
+              <th class="left-item wide-title">Tipo de paso</th>
+              <th>Paso</th>
+              <th>C<sub>F1</sub></th>
+            </tr>
+          </table>
         </div>
-      </footer>
-      <script type="module" src="./js/mainTables.js"></script>
-</body>
+        <div id="table_c2">
+          <!-- Table C2 -->
+          <h4>Tabla C2</h4>
+          <table id="tableC2">
+            <tr>
+              <th rowspan="2" class="left-item wide-title">Tipo de hélice</th>
+              <th colspan="3">Carga del transportador [C<sub>F2</sub>]</th>
+            </tr>
+            <tr>
+              <th>15%</th>
+              <th>30%</th>
+              <th>45%</th>
+            </tr>
+          </table>
+        </div>
+        <div id="table_c3">
+          <!-- Table C3 -->
+          <h4>Tabla C3</h4>
+          <table id="tableC3">
+            <tr>
+              <th class="wide-title">Cantidad de paletas barredoras</th>
+              <th>C<sub>F3</sub></th>
+            </tr>
+          </table>
+        </div>
+        <div id="table_d">
+          <!-- Table D -->
+          <h4>Tabla D</h4>
+          <table id="tableD">
+            <tr>
+              <th rowspan="3" class="left-item wide-title">
+                Diámetro del transportador
+              </th>
+              <th colspan="10">Carga del transportador</th>
+            </tr>
+            <tr>
+              <th colspan="5">Velocidad máxima recomendada [RPM]</th>
+              <th colspan="5">Capacidad en ft<sup>3</sup>/h por RPM</th>
+            </tr>
+            <tr>
+              <th>15%</th>
+              <th>30A%</th>
+              <th>30B%</th>
+              <th>45%</th>
+              <th>90%</th>
+              <th>15%</th>
+              <th>30A%</th>
+              <th>30B%</th>
+              <th>45%</th>
+              <th>90%</th>
+            </tr>
+          </table>
+        </div>
+        <div id="table_e">
+          <!-- Table E -->
+          <h4>Tabla E</h4>
+          <table id="tableE">
+            <tr>
+              <th class="left-item wide-title">Diámetro del transportador</th>
+              <th>OD<sup>*</sup></th>
+              <th>Material Clase 1</th>
+              <th>Material Clase 2</th>
+              <th>Material Clase 3</th>
+            </tr>
+          </table>
+          <h5>
+            <sup>*</sup>: Diámetro del tubo del eje del tornillo recomendado
+          </h5>
+        </div>
+        <div id="table_g1">
+          <!-- Table G1 -->
+          <h4>Tabla G1</h4>
+          <table id="tableG1">
+            <tr>
+              <th class="left-item wide-title">Acople con el motor</th>
+              <th>e<sup>**</sup></th>
+            </tr>
+          </table>
+        </div>
+        <div id="table_g2">
+          <!-- Table G2 -->
+          <h4>Tabla G2</h4>
+          <table id="tableG2">
+            <tr>
+              <th class="left-item wide-title">Transmisión</th>
+              <th>e<sup>**</sup></th>
+            </tr>
+          </table>
+          <h5 class="note">
+            <sup>**</sup>: La eficiencia mostrada en la tabla G1 corresponde a
+            valores típicos de las transmisiones más comunes. Si se desea
+            obtener el valor de eficiencia de una transmisión diferente, se debe
+            multiplicar el valor de e de la tabla G2 con el valor de la
+            eficiencia del motor acoplado.
+          </h5>
+        </div>
+        <div id="table_h2">
+          <!-- Table H2 -->
+          <h4>Tabla H2</h4>
+          <table id="tableH2" class="long-table">
+            <tr class="long-table">
+              <th class="left-item wide-title">Potencia normalizada [HP]</th>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="container">
+        <h5 class="end-logo">
+          Desarrollado por: Daniel Alberto Cifuentes Castro
+        </h5>
+        <div>
+          <a href="https://github.com/nano0018"
+            ><i class="fa-brands fa-github end-logo"></i>GitHub</a
+          >
+          <a href="https://gitlab.com/nano0018"
+            ><i class="fa-brands fa-gitlab end-logo"></i>GitLab</a
+          >
+        </div>
+      </div>
+    </footer>
+    <script type="module" src="./js/mainTables.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  </body>
 </html>
