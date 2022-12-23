@@ -136,13 +136,16 @@ const fillTableG2 = () => {
 }
 
 const fillTableH2 = () => {
-    const rowCount = 0;
     const table = dataFromTableH2.TableH2;
     for (const dataRow of table) {
-        document.getElementById('tableH2').innerHTML += `<tr>
+      document.getElementById('tableH2').innerHTML += `<tr>
         <td class="left-item">${dataRow["HP"]}</td>     
       </tr>`;
     }
+}
+
+const fillTableJ = () => {
+  const table = dataFromTableJ;
 }
 
 fillTableB();

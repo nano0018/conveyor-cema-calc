@@ -6,26 +6,107 @@
   --color5: #eef4ed;
   --navbar-weight: 45px;
   --width-form: 360px;
+  --current-font-size: 20px;
 }
 
 body {
   font-family: "Archivo Narrow";
-  font-size: 20px;
+  font-size: var(--current-font-size);
   background-color: var(--color5);
   margin: 0;
   width: 100%;
 }
 
-.sidebar {
-  margin-top: var(--navbar-weight);
-  position: fixed;
-  width: 150px;
+@media screen and (max-width: 600px) {
+  :root {
+    --navbar-weight: 30px;
+    --width-form: 340px;
+    --current-font-size: 13px;
+  }
+  }
+
+@media screen and (max-width: 360px) {
+  :root {
+    --navbar-weight: 30px;
+    --width-form: 300px;
+    --current-font-size: 11px;
+  }
+  }
+
+.dropdown {
+  display: inline-block;
+  position: relative;
 }
 
-.sidebar li {
-  list-style: none;
-  position: relative;
-  width: 100%;
+.dd-button {
+  display: inline-block;
+  padding-right: 30px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.dd-button:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  width: 0; 
+  height: 0; 
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--color3);
+}
+
+.dd-button:hover {
+  background-color: var(--color4);
+}
+
+
+.dd-input {
+  display: none;
+}
+
+.dd-menu {
+  position: absolute;
+  top: 100%;
+  border: 1px solid var(--color3);
+  border-radius: 4px;
+  padding: 0 5px 10px 0;
+  margin: 2px 0 0 0;
+  box-shadow: 0 0 6px 0 rgba(0,0,0,0.1);
+  background-color: var(--color5);
+  list-style-type: none;
+  max-height: 350px;
+  overflow: auto;
+}
+
+.dd-input + .dd-menu {
+  display: none;
+} 
+
+.dd-input:checked + .dd-menu {
+  display: block;
+} 
+
+.dd-menu li {
+  cursor: pointer;
+  white-space: nowrap;
+  max-height: calc(var(--current-font-size) + 10px);
+}
+
+.dd-menu li:hover {
+  background-color: var(--color5);
+}
+
+.dd-menu li a {
+  display: block;
+}
+
+.dd-menu li.divider{
+  margin-top: 2px;
+  padding: 0;
+  border-bottom: 1px solid var(--color2);
 }
 
 .navbar {
@@ -61,6 +142,10 @@ h2 {
   max-width: 360px;
 }
 
+h4 {
+  margin-bottom: 5px;
+}
+
 .section-head {
   margin: 0;
 }
@@ -68,9 +153,8 @@ h2 {
 .body {
   padding: var(--navbar-weight) 5px 10px 5px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
-  width: 100hv;
 }
 
 .container {
@@ -82,7 +166,11 @@ h2 {
   flex: 1;
 }
 
-table {
+.top-table {
+  padding-top: 15px;
+}
+
+table, .center-text {
   text-align: center;
 }
 
@@ -98,6 +186,13 @@ th:not(.wide-title) {
   max-width: 360px;
 }
 
+.long-table {
+  display: grid;
+  grid-template-columns: 
+    calc(var(--width-form)/3) 
+    calc(var(--width-form)/3) 
+    calc(var(--width-form)/3);
+}
 
 footer {
   background-color: var(--color4);

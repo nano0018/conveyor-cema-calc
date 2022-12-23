@@ -6,15 +6,34 @@
   --color5: #eef4ed;
   --navbar-weight: 45px;
   --width-form: 360px;
+  --current-font-size: 20px;
+  --current-input-font-size: 14px;
 }
 
 body {
   font-family: "Archivo Narrow";
-  font-size: 20px;
+  font-size: var(--current-font-size);
   background-color: var(--color5);
   margin: 0;
   width: 100%;
 }
+
+@media screen and (max-width: 750px) {
+  :root {
+    --navbar-weight: 30px;
+    --width-form: 340px;
+    --current-font-size: 13px;
+    --current-input-font-size: 13px;
+  }
+  }
+
+@media screen and (max-width: 360px) {
+  :root {
+    --navbar-weight: 30px;
+    --width-form: 300px;
+    --current-font-size: 11px;
+  }
+  }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -64,11 +83,10 @@ h2 {
 }
 
 .body {
-  padding: var(--navbar-weight) 5px 10px 5px;
+  padding: calc(var(--navbar-weight) + 5px) 5px 10px 5px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 100hv;
 }
 
 .input-data {
@@ -115,6 +133,10 @@ h2 {
   height: 21px;
   padding: 0 5px;
   margin: 5px 0;
+}
+
+.input-option, .select-option {
+  font-size: var(--current-input-font-size);
 }
 
 footer {

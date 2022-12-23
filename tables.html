@@ -21,6 +21,75 @@
         <div class="logo">
           <a href="#">Conveyor tool</a>
         </div>
+        <div>
+          <label class="dropdown">
+            <div class="dd-button">Lista tablas</div>
+            <input type="checkbox" class="dd-input" id="test" />
+            <ul class="dd-menu">
+              <li>
+                <a href="#table_b">Tabla B</a>
+              </li>
+              <li>
+                <a href="#table_c1">Tabla C1</a>
+              </li>
+              <li>
+                <a href="#table_c2">Tabla C2</a>
+              </li>
+              <li>
+                <a href="#table_c3">Tabla C3</a>
+              </li>
+              <li>
+                <a href="#table_d">Tabla D</a>
+              </li>
+              <li>
+                <a href="#table_e">Tabla E</a>
+              </li>
+              <li>
+                <a href="#table_g1">Tabla G1</a>
+              </li>
+              <li>
+                <a href="#table_g2">Tabla G2</a>
+              </li>
+              <li>
+                <a href="#table_h2">Tabla H2</a>
+              </li>
+              <li>
+                <a href="#table_b">Tabla J</a>
+              </li>
+              <li>
+                <a href="#table_b">Tabla K</a>
+              </li>
+              <li>
+                <a href="#table_b">Tabla L</a>
+              </li>
+              <li>
+                <a href="#table_b">Tabla M</a>
+              </li>
+              <li>
+                <a href="#table_b">Tabla N</a>
+              </li>
+              <li>
+                <a href="#table_b">Tabla Q</a>
+              </li>
+              <li>
+                <a href="#table_b">Tabla T</a>
+              </li>
+              <li>
+                <a href="#table_b">Tabla U</a>
+              </li>
+              <li>
+                <a href="#table_b">Tabla V</a>
+              </li>
+              <li>
+                <a href="#table_b">Tabla tornillos</a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a href="#">Documentos de referencia</a>
+              </li>
+            </ul>
+          </label>
+        </div>
         <div class="link-container">
           <a href="./index.html">Conveyor calculation</a>
           <a href="./tables.html">Calculation tables</a>
@@ -28,52 +97,8 @@
       </div>
     </nav>
     <section class="body">
-      <nav class="sidebar">
-        <header>Listado de tablas</header>
-        <ul>
-          <li>
-            <a href="#table_b">Tabla B</a>
-          </li>
-          <li>
-            <a href="#table_c1">Tabla C1</a>
-          </li>
-          <li>
-            <a href="#table_c2">Tabla C2</a>
-          </li>
-          <li>
-            <a href="#table_c3">Tabla C3</a>
-          </li>
-          <li>
-            <a href="#table_d">Tabla D</a>
-          </li>
-          <li>
-            <a href="#table_e">Tabla E</a>
-          </li>
-          <li>
-            <a href="#table_g1">Tabla G1</a>
-          </li>
-          <li>
-            <a href="#table_g2">Tabla G2</a>
-          </li>
-          <li>
-            <a href="#table_h2">Tabla B</a>
-          </li>
-          <li>
-            <a href="#table_b">Tabla B</a>
-          </li>
-          <li>
-            <a href="#table_b">Tabla B</a>
-          </li>
-          <li>
-            <a href="#table_b">Tabla B</a>
-          </li>
-          <li>
-            <a href="#table_b">Tabla B</a>
-          </li>
-        </ul>
-      </nav>
       <div class="container">
-        <div id="table_b">
+        <div id="table_b" class="top-table">
           <!-- Table B -->
           <h4>Tabla B</h4>
           <table id="tableB">
@@ -197,9 +222,25 @@
         <div id="table_h2">
           <!-- Table H2 -->
           <h4>Tabla H2</h4>
+          <h4 class="center-text">Potencia normalizada [HP]</h4>
           <table id="tableH2" class="long-table">
             <tr class="long-table">
-              <th class="left-item wide-title">Potencia normalizada [HP]</th>
+            </tr>
+          </table>
+        </div>
+        <div id="table_J">
+          <!-- Table J -->
+          <h4>Tabla J</h4>
+          <table id="tableJ">
+            <tr>
+              <th class="left-item wide-title" rowspan="2">Tipo de hélice</th>
+              <th class="left-item wide-title" colspan="4">Carga del transportador</th>
+            </tr>
+            <tr>
+              <th class="left-item wide-title">15%</th>
+              <th class="left-item wide-title">30%</th>
+              <th class="left-item wide-title">45%</th>
+              <th class="left-item wide-title">95%</th>
             </tr>
           </table>
         </div>
