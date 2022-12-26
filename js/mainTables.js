@@ -146,6 +146,11 @@ const fillTableH2 = () => {
 
 const fillTableJ = () => {
   const table = dataFromTableJ;
+  for (let index = 0; index < 4; index++) {
+    document.getElementById('tableH2').innerHTML += `<tr>
+        <td class="left-item">${table.Ff15['']}</td>     
+      </tr>`;          
+  }
 }
 
 fillTableB();
