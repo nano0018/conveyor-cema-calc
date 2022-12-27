@@ -147,11 +147,58 @@ const fillTableH2 = () => {
 const fillTableJ = () => {
   const table = dataFromTableJ;
   for (let index = 0; index < 4; index++) {
-    document.getElementById('tableH2').innerHTML += `<tr>
-        <td class="left-item">${table.Ff15['']}</td>     
+    document.getElementById('tableJ').innerHTML += `<tr>
+        <td class="left-item">${table.Ff15[index]["TYPE OF FLIGHTING"]}</td>
+        <td class="left-item">${table.Ff15[index].Ff}</td>
+        <td class="left-item">${table.Ff30[index].Ff}</td>
+        <td class="left-item">${table.Ff45[index].Ff}</td>
+        <td class="left-item">${table.Ff95[index].Ff}</td>    
       </tr>`;          
   }
 }
+
+const fillTableK = () => {
+  const table = dataFromTableK.TableK;
+  for (const dataRow of table) {
+    document.getElementById('tableK').innerHTML += `<tr>
+      <td class="left-item">${dataRow["PADDLES"]}</td>
+      <td class="left-item">${dataRow["Fp"]}</td>     
+    </tr>`;
+  }
+}
+
+const fillTableL = () => {
+  const table = dataFromTableL.TableL;
+  for (const dataRow of table) {
+    document.getElementById('tableL').innerHTML += `<tr>
+      <td class="left-item">${dataRow["SCREW DIA."]}"</td>
+      <td class="left-item">${dataRow["Fd"]}</td>     
+    </tr>`;
+  }
+}
+
+const fillTableM = () => {
+  const table = dataFromTableM.TableM;
+  for (const dataRow of table) {
+    document.getElementById('tableM').innerHTML += `<tr>
+      <td class="left-item">${dataRow["BEARING TYPE"]}</td>
+      <td class="left-item">${dataRow["COMPONENT GROUP"]}</td>
+      <td class="left-item">${dataRow["Fb"]}</td>       
+    </tr>`;
+  }
+}
+
+const fillTableQ = () => {
+  const table = dataFromTableQ.TableQ;
+  for (const dataRow of table) {
+    document.getElementById('tableM').innerHTML += `<tr>
+      <td class="left-item">${dataRow["BEARING TYPE"]}</td>
+      <td class="left-item">${dataRow["COMPONENT GROUP"]}</td>
+      <td class="left-item">${dataRow["Fb"]}</td>       
+    </tr>`;
+  }
+}
+
 
 fillTableB();
 fillTableC();
@@ -160,3 +207,7 @@ fillTableE();
 fillTableG1();
 fillTableG2();
 fillTableH2();
+fillTableJ();
+fillTableK();
+fillTableL();
+fillTableM();

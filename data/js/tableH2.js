@@ -3,6 +3,9 @@ export default
 {
     "TableH2": [
         {
+            "HP": "0.25"
+        },
+        {
             "HP": "0.5"
         },
         {
