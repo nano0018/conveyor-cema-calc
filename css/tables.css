@@ -186,6 +186,10 @@ th:not(.wide-title) {
   width: 100px;
 }
 
+.table-description {
+  width: calc(var(--width-form) * 2.25);
+}
+
 .note {
   max-width: 360px;
 }

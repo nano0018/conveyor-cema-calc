@@ -19,7 +19,7 @@
     <nav class="navbar">
       <div class="navbar-container">
         <div class="logo">
-          <a href="#">CCálculo del transportador</a>
+          <a href="#">Cálculo del transportador</a>
         </div>
         <div>
           <label class="dropdown">
@@ -85,7 +85,7 @@
               </li>
               <li class="divider"></li>
               <li>
-                <a href="#">Documentos de referencia</a>
+                <a href="#ref_documents">Documentos de referencia</a>
               </li>
             </ul>
           </label>
@@ -101,6 +101,29 @@
         <div id="table_b" class="top-table">
           <!-- Table B -->
           <h4>Tabla B</h4>
+          <div>
+            <p class="table-description">Para el diseño de transportadores de materiales a granel, los materiales son clasificados de acuerdo al sistema propuesto por el Conveyor Equipment Manufacturers Association (CEMA). El material se clasifica en 5 categorías, por lo que la estructura del código es:</p>
+            <h4>Ejemplo:</h4>
+            <p>Gluten, Meal = 40B35P</p>
+            <ul>
+              <li>
+                40 = Densidad [lb/ft<sub>3</sub>]
+              </li>
+              <li>
+                B = Tamaño del material
+              </li>
+              <li>
+                3 = Fluidez del Material
+              </li>
+              <li>
+                5 = Abrasividad del material
+              </li>
+              <li>
+                P = Otras características
+              </li>
+            </ul>
+            <p>Para más detalle de la nomenclatura propuesta por CEMA,<a href="./img/cema-chart.png">click aquí.</a></p>
+          </div>
           <table id="tableB">
             <tr>
               <th class="left-item wide-title">Material</th>
@@ -115,7 +138,7 @@
         <div id="table_c1">
           <!-- Table C1 -->
           <h4>Tabla C1</h4>
-          <table id="tableC1">
+          <table id="tableC1">            
             <tr>
               <th class="left-item wide-title">Tipo de paso</th>
               <th>Paso</th>
@@ -445,7 +468,22 @@
               <th class="center-item wide-title">Lamalloy</th>
             </tr>
           </table>
-        </div>       
+        </div>
+        <div id="ref_documents">
+          <!-- Documents and ref. links -->
+          <h4>Documentos de interés</h4>
+          <ul>
+            <li>
+              <a href="https://webstore.ansi.org/standards/cema/ansicema3502015">Tornillos transportadores para materiales a granel: ANSI-CEMA 350</a>
+            </li>
+            <li>
+              <a href="https://www.conveyoreng.com/conveyor-design-manual/">Tornillos transportadores - Componentes y diseño: Conveyor Eng. & Mfg. Co.</a>
+            </li>
+            <li>
+              <a href="https://www.martinsprocket.com/docs//catalogs/material%20handling/2_screw%20conveyor/screw-conveyors.pdf/">Tornillos transportadores - Componentes y diseño: Martin Sprocket & Gear, Inc.</a>
+            </li>            
+          </ul>
+        </div>    
       </div>
     </section>
     <footer>
