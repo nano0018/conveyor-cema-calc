@@ -178,6 +178,10 @@ table, .center-item {
   text-align: left;
 }
 
+.right-item {
+  text-align: right;
+}
+
 th:not(.wide-title) {
   width: 100px;
 }
