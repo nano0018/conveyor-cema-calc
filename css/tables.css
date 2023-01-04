@@ -6,6 +6,7 @@
   --color5: #eef4ed;
   --navbar-weight: 45px;
   --width-form: 360px;
+  --width-text-desc: 880px;
   --current-font-size: 20px;
 }
 
@@ -21,6 +22,7 @@ body {
   :root {
     --navbar-weight: 30px;
     --width-form: 340px;
+    --width-text-desc: 400px;
     --current-font-size: 13px;
   }
   }
@@ -29,6 +31,7 @@ body {
   :root {
     --navbar-weight: 30px;
     --width-form: 300px;
+    --width-text-desc: 335px;
     --current-font-size: 11px;
   }
   }
@@ -187,7 +190,7 @@ th:not(.wide-title) {
 }
 
 .table-description {
-  width: calc(var(--width-form) * 2.25);
+  max-width: var(--width-text-desc);
 }
 
 .note {
